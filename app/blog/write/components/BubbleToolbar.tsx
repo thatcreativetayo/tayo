@@ -39,7 +39,6 @@ export default function BubbleToolbar({ editor }: BubbleToolbarProps) {
   return (
     <BubbleMenu
       editor={editor}
-      tippyOptions={{ duration: 150, placement: 'top' }}
       shouldShow={({ from, to }) => from !== to && !editor.isActive('image')}
     >
       {showLink ? (
