@@ -1,0 +1,167 @@
+.tayo-prose {
+  outline: none;
+}
+
+.tayo-prose p {
+  font-size: 17px;
+  line-height: 1.75;
+  color: #1a1a1a;
+  margin-bottom: 1.25rem;
+}
+
+.tayo-prose h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 2rem 0 0.75rem;
+  color: #111;
+}
+
+.tayo-prose h2 {
+  font-size: 1.5rem;
+  font-weight: 650;
+  margin: 1.75rem 0 0.6rem;
+  color: #111;
+}
+
+.tayo-prose h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 1.5rem 0 0.5rem;
+  color: #111;
+}
+
+.tayo-prose blockquote {
+  border-left: 3px solid #111;
+  padding: 0.5rem 0 0.5rem 1.5rem;
+  margin: 1.5rem 0;
+  font-style: italic;
+  font-size: 1.15rem;
+  color: #444;
+}
+
+.tayo-prose code {
+  background: #f3f3f3;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.88em;
+  color: #d63384;
+}
+
+.tayo-prose pre {
+  background: #1a1a1a;
+  color: #f8f8f2;
+  padding: 1.25rem 1.5rem;
+  border-radius: 10px;
+  overflow-x: auto;
+  font-size: 14px;
+  line-height: 1.65;
+  margin: 1.5rem 0;
+}
+
+.tayo-prose pre code {
+  background: none;
+  color: inherit;
+  padding: 0;
+  font-size: inherit;
+}
+
+.tayo-prose img {
+  width: 100%;
+  border-radius: 10px;
+  margin: 1.5rem 0;
+  display: block;
+}
+
+.tayo-prose .youtube-wrapper {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  margin: 1.5rem 0;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.tayo-prose .youtube-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.tayo-prose hr {
+  border: none;
+  border-top: 1px solid #e5e5e5;
+  margin: 2.5rem 0;
+}
+
+.tayo-prose ul,
+.tayo-prose ol {
+  padding-left: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.tayo-prose li {
+  margin-bottom: 0.4rem;
+  font-size: 17px;
+  line-height: 1.75;
+  color: #1a1a1a;
+}
+
+.tayo-prose a {
+  color: #111;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.tayo-prose a:hover {
+  color: #555;
+}
+
+.tayo-prose mark {
+  background: #fff3b0;
+  padding: 1px 3px;
+  border-radius: 3px;
+}
+
+.tayo-prose .callout {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  background: #f9f9f9;
+  border-radius: 10px;
+  padding: 1rem 1.25rem;
+  margin: 1.25rem 0;
+  border: 1px solid #eee;
+  font-size: 15px;
+  color: #333;
+}
+
+.tayo-prose .callout-icon {
+  flex-shrink: 0;
+  font-size: 1.2rem;
+  margin-top: 1px;
+}
+
+/* Placeholder */
+.tayo-prose p.is-editor-empty:first-child::before,
+.tayo-prose p.is-empty::before {
+  content: attr(data-placeholder);
+  float: left;
+  color: #d1d5db;
+  pointer-events: none;
+  height: 0;
+}
+
+/* Shake animation for title validation */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-6px); }
+  40% { transform: translateX(6px); }
+  60% { transform: translateX(-4px); }
+  80% { transform: translateX(4px); }
+}
+
+.shake {
+  animation: shake 0.4s ease;
+}

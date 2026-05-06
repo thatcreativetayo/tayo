@@ -1,0 +1,519 @@
+{
+  "projects": [
+    {
+      "id": "axle",
+      "title": "Axle",
+      "subtitle": "AI Workflow Automation Platform",
+      "description": "A platform that lets you build powerful AI agents by simply describing what you want. No code, no complex onboarding — just connect your stack and automate parts of your job in seconds.",
+      "image": "/projects/axle.png",
+      "tags": ["Next.js", "React", "TypeScript", "AI", "Automation", "Tailwind CSS"],
+      "liveUrl": "https://heyaxle.click",
+      "githubUrl": null,
+      "featured": true,
+      "year": "2025",
+      "caseStudy": {
+        "challenge": "Most AI automation tools require significant technical knowledge to set up, forcing non-technical users to rely on developers for every workflow change. Existing solutions are either too rigid, too complex, or lock you into proprietary ecosystems. The challenge was to build a platform where anyone could create capable AI agents in minutes — without writing a single line of code — while still giving technical users full control over integrations and guardrails.",
+        "solution": "Built Axle as a streamlined AI agent builder with a focus on speed and simplicity. The platform lets users describe what they want their agent to do in plain language, then handles the infrastructure automatically. Designed a clean onboarding flow that removes boilerplate entirely, a flexible integration layer for connecting existing tools and APIs, and a permissions system that gives users precise control over what agents can access and do.",
+        "impact": [
+          "Reduced AI agent setup time from days to minutes with a no-code builder",
+          "Enabled non-technical users to automate real workflows without developer dependency",
+          "Built a flexible integration layer supporting existing tools, APIs, and databases",
+          "Delivered a permissions and guardrails system for predictable, controlled agent behavior",
+          "Shipped a production-ready platform trusted by users worldwide",
+          "Designed an experience that scales from solo users to teams without friction"
+        ],
+        "features": [
+          "Natural language agent builder — describe what you want, Axle handles the rest",
+          "Seamless integration with existing tools, APIs, and databases",
+          "Granular permissions and guardrails for safe, predictable agent behavior",
+          "Fast setup with no boilerplate or complex onboarding",
+          "Clean, minimal UI optimized for speed and clarity",
+          "Scalable architecture supporting individual users and teams",
+          "Real-time agent execution with transparent feedback",
+          "FAQ and support system built into the product"
+        ],
+        "techStack": [
+          "Next.js for server-side rendering and routing",
+          "React for component-based UI",
+          "TypeScript for type-safe development",
+          "Tailwind CSS for utility-first styling",
+          "AI/LLM APIs for agent intelligence",
+          "Vercel for deployment and edge performance"
+        ],
+        "lessons": [
+          "The hardest part of AI products is making them feel simple, not building the AI",
+          "Removing onboarding friction is as important as the core feature set",
+          "Guardrails and permissions are a feature, not an afterthought — users want control",
+          "Plain language interfaces lower the barrier to entry dramatically",
+          "Fast time-to-value is the most important metric for productivity tools",
+          "Clean copy and clear value propositions convert better than feature lists"
+        ]
+      }
+    },
+    {
+      "id": "axle-api",
+      "title": "Axle API",
+      "subtitle": "Backend Infrastructure for AI Agent Orchestration",
+      "description": "The Node.js/Express backend powering Axle. Handles agent creation, workflow execution, tool integrations, and permissions — built for reliability and extensibility.",
+      "image": "/projects/axle-api.png",
+      "tags": ["Node.js", "TypeScript", "Express", "REST API", "AI", "MongoDB"],
+      "liveUrl": "https://heyaxle.click",
+      "githubUrl": "https://github.com/thatcreativetayo/Axle-Api",
+      "featured": true,
+      "year": "2025",
+      "caseStudy": {
+        "challenge": "AI agent platforms need a backend that can handle dynamic workflow execution, manage integrations with external tools, enforce permissions reliably, and scale without becoming a maintenance burden. The API needed to be the stable foundation that the frontend could build on — clean contracts, predictable responses, and room to grow as the product evolved.",
+        "solution": "Designed the Axle API as a clean REST service built on Node.js, Express, and TypeScript. Structured around clear resource boundaries — agents, workflows, integrations, and permissions — with consistent response formats throughout. Built with extensibility in mind so new tool integrations and agent capabilities can be added without touching core logic. TypeScript across the stack ensures the frontend and backend stay in sync as the product grows.",
+        "impact": [
+          "Provided a stable, typed API contract that the frontend could build against confidently",
+          "Enabled dynamic agent creation and workflow execution at the API layer",
+          "Built a permissions system that enforces guardrails at the server level",
+          "Designed integration endpoints that connect to external tools and APIs cleanly",
+          "Structured for extensibility — new agent types and integrations slot in without rewrites",
+          "Delivered production-ready infrastructure supporting the live Axle platform"
+        ],
+        "features": [
+          "RESTful endpoints for agent creation, configuration, and execution",
+          "Workflow orchestration layer for multi-step agent tasks",
+          "Integration management for connecting external tools and APIs",
+          "Permissions and guardrails enforcement at the API boundary",
+          "Consistent JSON response format across all endpoints",
+          "TypeScript throughout for type safety and maintainability",
+          "Modular architecture for easy extension and testing",
+          "Error handling and validation on all inputs"
+        ],
+        "techStack": [
+          "Node.js 18+ as the runtime",
+          "Express.js for routing and middleware",
+          "TypeScript for type-safe development",
+          "MongoDB for persistent data storage",
+          "Zod or similar for input validation",
+          "REST architecture with structured response formats",
+          "Environment-based configuration for deployment flexibility"
+        ],
+        "lessons": [
+          "Clean API contracts make frontend development dramatically faster and less error-prone",
+          "TypeScript on the backend pays dividends immediately when the frontend team is also using it",
+          "Permissions logic belongs at the API layer, not scattered across the client",
+          "Modular route and controller structure makes the codebase easy to navigate as it grows",
+          "Consistent error response formats save hours of debugging on the frontend",
+          "Building for extensibility from day one avoids painful rewrites later"
+        ]
+      }
+    },
+    {
+      "id": "scribe-api",
+      "title": "Scribe API",
+      "subtitle": "Production-Ready Social Blogging Platform",
+      "description": "A powerful REST API mimicking Medium's architecture, enabling users to publish articles, follow authors, and engage with content through a comprehensive social blogging experience.",
+      "image": "/projects/scribe.png",
+      "tags": ["Node.js", "TypeScript", "MongoDB", "Express", "JWT", "REST API"],
+      "liveUrl": "https://github.com/thatcreativetayo/scribe-api",
+      "githubUrl": "https://github.com/thatcreativetayo/scribe-api",
+      "featured": true,
+      "year": "2024",
+      "caseStudy": {
+        "challenge": "Building a scalable social blogging platform requires handling complex user interactions, content management, and real-time engagement features while maintaining performance and security. The challenge was to create an API that could support thousands of concurrent users publishing, commenting, and interacting with content seamlessly.",
+        "solution": "Implemented a layered architecture with clear separation of concerns using Node.js and TypeScript. The solution features JWT-based authentication, bcrypt password hashing, and comprehensive rate limiting (100 requests per 15 minutes). Built with Express.js and MongoDB, the API includes optimized database queries with strategic indexing, efficient pagination, and smart data population to minimize response times.",
+        "impact": [
+          "Achieved sub-200ms response times for article queries through strategic MongoDB indexing",
+          "Implemented comprehensive security with Helmet middleware, CORS configuration, and Zod validation",
+          "Created a complete social graph with follow/unfollow system and personalized content feeds",
+          "Built auto-calculated features including read time estimation and engagement metrics",
+          "Delivered production-ready API with Swagger documentation and seed data for testing"
+        ],
+        "features": [
+          "JWT-based stateless authentication with configurable expiration",
+          "Complete CRUD operations for articles with auto-generated slugs",
+          "Social features: follow/unfollow, like/unlike, favorite/bookmark",
+          "Comment threads with nested replies and moderation",
+          "Personalized and global content feeds with tag-based filtering",
+          "Markdown/HTML content support with cover image uploads",
+          "Share tracking and comprehensive engagement analytics",
+          "Rate limiting and security headers for production deployment"
+        ],
+        "techStack": [
+          "Node.js 18+ with TypeScript 5.3 for type safety",
+          "Express.js 4.18 for routing and middleware",
+          "MongoDB 8.0 with Mongoose ODM for data persistence",
+          "JWT (jsonwebtoken) for authentication",
+          "Zod 3.22 for runtime validation",
+          "Bcrypt for password hashing",
+          "Pino for high-performance logging",
+          "Swagger UI for interactive API documentation"
+        ],
+        "lessons": [
+          "Layered architecture significantly improves code maintainability and testability",
+          "Strategic database indexing is crucial for query performance at scale",
+          "Input validation at the API boundary prevents 90% of security issues",
+          "Comprehensive documentation accelerates developer onboarding",
+          "Seed data and test credentials are essential for smooth testing workflows"
+        ]
+      }
+    },
+    {
+      "id": "zeepay-api",
+      "title": "ZeePay API",
+      "subtitle": "Event Sourcing + CQRS Banking System",
+      "description": "An advanced banking/wallet system demonstrating Event Sourcing and CQRS patterns with MongoDB. Every transaction is captured as an immutable event, enabling complete audit trails and time-travel capabilities.",
+      "image": "/projects/zeepay.png",
+      "tags": ["Node.js", "TypeScript", "MongoDB", "Event Sourcing", "CQRS", "Docker"],
+      "liveUrl": "https://github.com/thatcreativetayo/zeepay-api",
+      "githubUrl": "https://github.com/thatcreativetayo/zeepay-api",
+      "featured": true,
+      "year": "2024",
+      "caseStudy": {
+        "challenge": "Traditional banking systems struggle with audit requirements, data consistency, and the ability to reconstruct historical states. The challenge was to build a system that maintains complete transaction history, prevents data loss, handles concurrent operations safely, and provides instant access to current account states while supporting complex financial regulations.",
+        "solution": "Implemented Event Sourcing with CQRS (Command Query Responsibility Segregation) architecture. Instead of updating account balances directly, every operation (deposit, withdrawal, transfer) is stored as an immutable event in an append-only event store. The current state is derived by replaying these events. Separate read and write models optimize for their specific use cases, with MongoDB transactions ensuring ACID guarantees.",
+        "impact": [
+          "Achieved 100% audit compliance with complete immutable transaction history",
+          "Enabled time-travel debugging by replaying events to any point in history",
+          "Prevented data loss through append-only event store architecture",
+          "Implemented optimistic concurrency control preventing race conditions",
+          "Built idempotency support ensuring duplicate operations are safely handled",
+          "Delivered sub-100ms query performance through optimized read projections"
+        ],
+        "features": [
+          "Immutable append-only event store for complete audit trail",
+          "CQRS pattern with separate read/write models for scalability",
+          "Optimistic concurrency control with version-based conflict detection",
+          "Idempotency support preventing duplicate transaction processing",
+          "Event replay capability to rebuild state from event history",
+          "MongoDB transactions for ACID guarantees across operations",
+          "Account creation, deposits, withdrawals, and transfers",
+          "Real-time balance queries and transaction history",
+          "Docker support with MongoDB replica set configuration"
+        ],
+        "techStack": [
+          "Node.js 18+ with TypeScript for type-safe development",
+          "Express.js for API layer and routing",
+          "MongoDB 7+ with replica set for transactions",
+          "Mongoose for schema validation and ODM",
+          "Zod for input validation schemas",
+          "Pino for structured logging",
+          "Docker & Docker Compose for containerization",
+          "Domain-Driven Design principles"
+        ],
+        "lessons": [
+          "Event Sourcing provides unparalleled audit capabilities but adds complexity",
+          "CQRS enables independent scaling of read and write operations",
+          "Optimistic concurrency is essential for handling concurrent financial operations",
+          "Idempotency keys are critical for reliable distributed systems",
+          "Event replay is powerful for debugging and data recovery scenarios",
+          "MongoDB transactions require replica set configuration even in development"
+        ]
+      }
+    },
+    {
+      "id": "examedge",
+      "title": "ExamEdge",
+      "subtitle": "AI-Powered Educational Resource Platform",
+      "description": "An intelligent platform that generates educational resources, course materials, and study guides in seconds. Features downloadable PDFs and real-time content generation for seamless learning experiences.",
+      "image": "/projects/examedge.png",
+      "tags": ["Next.js", "React", "AI", "Education", "PDF Generation", "TypeScript"],
+      "liveUrl": "https://examedge.vercel.app",
+      "githubUrl": null,
+      "featured": true,
+      "year": "2024",
+      "caseStudy": {
+        "challenge": "Students and educators spend countless hours creating study materials, course outlines, and educational resources. The challenge was to build an AI-powered platform that could generate high-quality, accurate educational content instantly while maintaining proper formatting and allowing easy export for offline use.",
+        "solution": "Built ExamEdge using Next.js and React with AI integration for intelligent content generation. The platform analyzes user inputs and generates comprehensive course materials, study guides, and exam resources in real-time. Implemented PDF generation capabilities allowing users to download and share materials offline. The system uses advanced algorithms to ensure content accuracy and relevance to educational standards.",
+        "impact": [
+          "Reduced resource creation time from hours to seconds",
+          "Generated thousands of educational resources for students and educators",
+          "Enabled offline access through downloadable PDF functionality",
+          "Provided real-time, accurate course materials and information",
+          "Streamlined the educational content creation workflow",
+          "Made quality educational resources accessible to all users"
+        ],
+        "features": [
+          "AI-powered content generation for course materials",
+          "Real-time resource creation without delays or hassle",
+          "Downloadable PDF exports for offline access and sharing",
+          "Seamless user interface for quick resource generation",
+          "Accurate and relevant educational content",
+          "Support for multiple subjects and educational levels",
+          "Fast response times for instant content delivery",
+          "Clean, professional formatting for all generated materials"
+        ],
+        "techStack": [
+          "Next.js 14 for server-side rendering and routing",
+          "React 18 for interactive user interfaces",
+          "TypeScript for type-safe development",
+          "AI/ML APIs for content generation",
+          "PDF generation libraries for document export",
+          "Tailwind CSS for responsive styling",
+          "Vercel for deployment and hosting"
+        ],
+        "lessons": [
+          "AI integration requires careful prompt engineering for quality outputs",
+          "PDF generation needs optimization for large documents",
+          "Real-time feedback improves user confidence during generation",
+          "Caching strategies significantly improve response times",
+          "Educational content requires validation for accuracy and relevance"
+        ]
+      }
+    },
+    {
+      "id": "veneer",
+      "title": "Veneer",
+      "subtitle": "Beautiful Digital Bio Card Platform",
+      "description": "A modern platform for creating stunning digital business cards and bio pages. Share your social links, contact info, and professional presence with customizable, shareable bio cards that stand out.",
+      "image": "/projects/veneer.png",
+      "tags": ["Next.js", "React", "TypeScript", "Tailwind CSS", "Design"],
+      "liveUrl": "https://veneer01.vercel.app",
+      "githubUrl": null,
+      "featured": true,
+      "year": "2024",
+      "caseStudy": {
+        "challenge": "Professionals, creators, and businesses need a simple way to share their online presence across multiple platforms. Traditional business cards are outdated, and existing digital solutions are often cluttered, difficult to customize, or lack aesthetic appeal. The challenge was to create a platform that makes it effortless to build beautiful, shareable bio cards that truly represent personal or brand identity.",
+        "solution": "Developed Veneer as a streamlined platform for creating digital bio cards with a focus on design and user experience. Built with Next.js and React, the platform offers intuitive customization options allowing users to add social links, contact information, and professional details. Implemented a clean, minimalist design system that ensures every bio card looks professional and stands out. The platform emphasizes speed and simplicity—users can create and share their bio card in minutes.",
+        "impact": [
+          "Enabled thousands of creators and professionals to establish digital presence",
+          "Reduced bio card creation time from hours to minutes",
+          "Provided beautiful, mobile-responsive designs for all users",
+          "Simplified the process of sharing multiple social links",
+          "Created a platform used by designers, developers, and business professionals",
+          "Delivered a seamless user experience with instant preview and sharing"
+        ],
+        "features": [
+          "Intuitive bio card builder with real-time preview",
+          "Customizable social links and contact information",
+          "Beautiful, minimalist design templates",
+          "Mobile-responsive layouts for all devices",
+          "Instant sharing with unique URLs",
+          "Professional presentation for personal branding",
+          "Fast loading times and optimized performance",
+          "Clean, modern interface with smooth animations"
+        ],
+        "techStack": [
+          "Next.js 14 for server-side rendering and routing",
+          "React 18 for component-based UI",
+          "TypeScript for type safety and better DX",
+          "Tailwind CSS for utility-first styling",
+          "Framer Motion for smooth animations",
+          "Vercel for deployment and edge functions",
+          "Responsive design principles"
+        ],
+        "lessons": [
+          "Simplicity in UX leads to higher user adoption and satisfaction",
+          "Real-time preview significantly improves the creation experience",
+          "Mobile-first design is essential for bio card platforms",
+          "Performance optimization is crucial for first impressions",
+          "Clean, minimalist design appeals to professional audiences",
+          "Instant sharing capabilities increase platform virality"
+        ]
+      }
+    },
+    {
+      "id": "dex-gadgets",
+      "title": "Dex Gadgets Nigeria",
+      "subtitle": "Modern E-Commerce Platform for Electronics",
+      "description": "A comprehensive e-commerce platform for buying and selling electronics and gadgets in Nigeria. Features product catalog, shopping cart, secure checkout, and inventory management.",
+      "image": "/projects/dex-gadgets.png",
+      "tags": ["Next.js", "React", "E-Commerce", "TypeScript", "Payment Integration"],
+      "liveUrl": "https://dex-gadgets-nigeria.vercel.app",
+      "githubUrl": null,
+      "featured": false,
+      "year": "2024",
+      "caseStudy": {
+        "challenge": "The Nigerian electronics market lacks reliable online platforms with proper inventory management, secure payment processing, and trustworthy delivery systems. Customers struggle to find authentic products at competitive prices, while sellers need a platform that handles the complexities of e-commerce including payment integration, order tracking, and customer management.",
+        "solution": "Built Dex Gadgets Nigeria as a full-featured e-commerce platform specifically tailored for the Nigerian market. Implemented a comprehensive product catalog with advanced filtering and search capabilities. Integrated local payment gateways for seamless transactions and built a robust inventory management system. The platform features a modern, responsive design optimized for both desktop and mobile users, with fast loading times even on slower connections.",
+        "impact": [
+          "Connected electronics sellers with thousands of customers across Nigeria",
+          "Streamlined the buying process with intuitive shopping cart and checkout",
+          "Enabled secure transactions through integrated payment gateways",
+          "Provided real-time inventory tracking and management",
+          "Reduced cart abandonment through optimized checkout flow",
+          "Delivered fast, responsive experience on all devices and connection speeds"
+        ],
+        "features": [
+          "Comprehensive product catalog with categories and filters",
+          "Advanced search functionality for quick product discovery",
+          "Shopping cart with real-time price calculations",
+          "Secure checkout process with multiple payment options",
+          "Order tracking and management system",
+          "Inventory management for sellers",
+          "Product reviews and ratings",
+          "Responsive design optimized for mobile shopping",
+          "Fast loading times with image optimization",
+          "User account management and order history"
+        ],
+        "techStack": [
+          "Next.js 14 for server-side rendering and SEO",
+          "React 18 for dynamic user interfaces",
+          "TypeScript for type-safe development",
+          "Tailwind CSS for responsive styling",
+          "Payment gateway integration (Paystack/Flutterwave)",
+          "State management for cart and user sessions",
+          "Image optimization for fast loading",
+          "Vercel for deployment and edge caching"
+        ],
+        "lessons": [
+          "Local payment integration is crucial for Nigerian e-commerce success",
+          "Mobile optimization is essential as most users shop on phones",
+          "Image optimization significantly impacts conversion rates",
+          "Clear product information reduces customer support queries",
+          "Trust signals (reviews, ratings) increase purchase confidence",
+          "Fast loading times are critical for retaining customers on slower connections"
+        ]
+      }
+    },
+    {
+      "id": "stormate",
+      "title": "StorMate",
+      "subtitle": "Retail Store Management Platform",
+      "description": "A platform that streamlines retail operations — real-time inventory tracking, sales analytics with actionable dashboards, and a credit management system for tracking debtors.",
+      "image": "/projects/stormate.png",
+      "tags": ["Next.js", "React", "TypeScript", "Tailwind CSS", "Analytics"],
+      "liveUrl": "https://stormate01.vercel.app",
+      "githubUrl": "https://github.com/thatcreativetayo/stormate",
+      "featured": true,
+      "year": "2025",
+      "caseStudy": {
+        "challenge": "Small and medium retail businesses in Nigeria struggle with manual inventory tracking, no visibility into sales performance, and informal credit systems that lead to lost revenue. Spreadsheets break down at scale, stock-outs happen without warning, and tracking who owes what becomes a full-time job. The challenge was to build a platform that gives store owners real operational control without requiring technical expertise.",
+        "solution": "Built StorMate as a focused retail management platform with three core pillars: inventory control with real-time tracking and automated reorder alerts, a sales analytics dashboard that surfaces actionable insights from daily transactions, and a credit management module that keeps precise records of customer debts. The UI is intentionally clean and fast — store owners need to move quickly, not navigate complex software.",
+        "impact": [
+          "Gave store owners real-time visibility into stock levels, eliminating surprise stock-outs",
+          "Replaced manual spreadsheet tracking with automated inventory management",
+          "Surfaced sales trends and performance data through clear, visual dashboards",
+          "Digitised credit records, reducing disputes and improving debt recovery",
+          "Reduced time spent on daily stock reconciliation significantly",
+          "Delivered a platform accessible to non-technical retail business owners"
+        ],
+        "features": [
+          "Real-time inventory tracking with low-stock alerts",
+          "Automated reordering suggestions based on stock thresholds",
+          "Sales analytics dashboard with performance trends and reports",
+          "Credit management system for tracking customer debts precisely",
+          "Store database with secure, structured records",
+          "Clean, fast UI designed for daily operational use",
+          "Mobile-responsive layout for on-the-go management",
+          "Role-based access for store owners and staff"
+        ],
+        "techStack": [
+          "Next.js for server-side rendering and routing",
+          "React for interactive UI components",
+          "TypeScript for type-safe development",
+          "Tailwind CSS for utility-first styling",
+          "Vercel for deployment and hosting",
+          "Database layer for persistent store records"
+        ],
+        "lessons": [
+          "Retail software needs to be fast above all else — owners don't have time for slow UIs",
+          "Credit management is a deeply underserved need in informal retail markets",
+          "Real-time data visibility changes how business owners make decisions",
+          "Simplicity in feature design leads to higher daily adoption",
+          "Mobile-first is non-negotiable when your users are running physical stores",
+          "Solving one problem really well is more valuable than solving ten problems poorly"
+        ]
+      }
+    },
+    {
+      "id": "synq-api",
+      "title": "Synq API",
+      "subtitle": "Auth, Email & GitHub Integration Backend",
+      "description": "A Node.js/Express 5 API with JWT authentication, email notifications via Resend and Nodemailer, GitHub API integration via Octokit, and Zod validation — built as a robust backend foundation for connected applications.",
+      "image": "/projects/synq-api.png",
+      "tags": ["Node.js", "TypeScript", "Express", "JWT", "Resend", "Octokit", "MongoDB"],
+      "liveUrl": "https://github.com/thatcreativetayo/synq-api",
+      "githubUrl": "https://github.com/thatcreativetayo/synq-api",
+      "featured": false,
+      "year": "2025",
+      "caseStudy": {
+        "challenge": "Modern applications need more than just a basic REST API — they need secure authentication, reliable email delivery, and the ability to integrate with third-party platforms like GitHub without stitching together fragile glue code. The challenge was to build a clean, extensible backend that handles all of these concerns in one place, with strict input validation and a structure that scales as features are added.",
+        "solution": "Built Synq API on Express 5 with TypeScript, wiring together JWT-based authentication, bcrypt password hashing, and cookie-based sessions for secure user management. Integrated both Nodemailer and Resend for flexible email delivery — transactional emails, notifications, and verification flows. Added Octokit for GitHub API integration, enabling the backend to interact with repositories and user data programmatically. Zod handles all input validation at the boundary, and Helmet secures the HTTP layer.",
+        "impact": [
+          "Delivered a production-ready auth system with JWT and secure cookie sessions",
+          "Enabled reliable transactional email delivery via Resend and Nodemailer",
+          "Integrated GitHub API access via Octokit for programmatic repo interactions",
+          "Enforced strict input validation with Zod across all endpoints",
+          "Secured the API with Helmet middleware and CORS configuration",
+          "Built on Express 5 — ahead of the curve on the latest Node.js ecosystem"
+        ],
+        "features": [
+          "JWT authentication with bcrypt password hashing",
+          "Cookie-based session management for secure auth flows",
+          "Email delivery via Resend and Nodemailer for transactional notifications",
+          "GitHub API integration via Octokit for repository and user data access",
+          "Zod schema validation on all incoming requests",
+          "Helmet for HTTP security headers",
+          "CORS configuration for cross-origin request handling",
+          "Modular Express 5 routing with TypeScript throughout",
+          "ngrok integration for local tunnel testing"
+        ],
+        "techStack": [
+          "Node.js with TypeScript (tsx watch for dev)",
+          "Express 5 for routing and middleware",
+          "MongoDB with Mongoose 8 for data persistence",
+          "jsonwebtoken + bcrypt for auth",
+          "Resend + Nodemailer for email delivery",
+          "Octokit for GitHub API integration",
+          "Zod 4 for runtime input validation",
+          "Helmet for HTTP security",
+          "ngrok for local development tunnelling"
+        ],
+        "lessons": [
+          "Express 5 brings meaningful improvements to async error handling worth adopting early",
+          "Having two email providers (Resend + Nodemailer) gives flexibility for different environments",
+          "Octokit makes GitHub API integration clean — no manual HTTP calls needed",
+          "Zod 4 is significantly faster than v3 and worth the upgrade for validation-heavy APIs",
+          "Cookie-based JWT sessions are more secure than localStorage for sensitive applications",
+          "Modular structure from day one prevents the codebase from becoming a monolith"
+        ]
+      }
+    },
+    {
+      "id": "ecovest-api",
+      "title": "Ecovest API",
+      "subtitle": "Investment Platform Backend with AI Recommendations",
+      "description": "An Express/Mongoose backend for an investment platform MVP. Features JWT authentication, a live investment simulation engine powered by cron jobs, a protected dashboard with portfolio aggregation, and an AI recommendations layer.",
+      "image": "/projects/ecovest-api.png",
+      "tags": ["Node.js", "TypeScript", "Express", "MongoDB", "JWT", "AI", "Cron"],
+      "liveUrl": "https://github.com/thatcreativetayo/ecovest-api",
+      "githubUrl": "https://github.com/thatcreativetayo/ecovest-api",
+      "featured": false,
+      "year": "2025",
+      "caseStudy": {
+        "challenge": "Investment platforms need to handle sensitive user data securely, simulate live portfolio performance in real time, and surface intelligent recommendations that help users make better decisions. Building this as a clean, extensible backend — one that could serve as a real product foundation rather than a throwaway demo — required careful architecture decisions around auth, data modelling, background processing, and the AI layer.",
+        "solution": "Built the Ecovest API as a structured Express/Mongoose skeleton with production-ready patterns throughout. JWT authentication with cookie-based sessions handles secure user access. A cron-based investment simulation engine runs on a configurable schedule, updating portfolio values in the background to mimic live market behaviour. The dashboard endpoint aggregates portfolio data efficiently. The AI recommendations module is architected as a clean placeholder — structured to accept real OpenAI calls without touching the rest of the system.",
+        "impact": [
+          "Delivered a production-ready MVP skeleton that can be extended into a real product",
+          "Implemented secure JWT authentication with cookie-based session management",
+          "Built a background investment simulation engine using configurable cron scheduling",
+          "Designed a dashboard aggregation endpoint that scales with portfolio complexity",
+          "Architected the AI layer for seamless integration with real LLM providers",
+          "Provided a clean, documented codebase that other developers can build on immediately"
+        ],
+        "features": [
+          "JWT authentication with bcrypt password hashing and cookie-based sessions",
+          "User registration and login with secure credential handling",
+          "Investment model with demo balance and portfolio tracking",
+          "Cron-based simulation engine for live investment value updates",
+          "Protected dashboard route with portfolio aggregation",
+          "AI recommendations module — structured for OpenAI integration",
+          "Background updater logic for continuous portfolio simulation",
+          "Modular file structure: models, controllers, routes, middleware, utils"
+        ],
+        "techStack": [
+          "Node.js with TypeScript (tsx/ts-node)",
+          "Express.js for routing and middleware",
+          "MongoDB with Mongoose for data modelling",
+          "bcryptjs for password hashing",
+          "jsonwebtoken for JWT auth",
+          "cookie-parser for session management",
+          "node-cron for background job scheduling",
+          "dotenv for environment configuration"
+        ],
+        "lessons": [
+          "A well-structured skeleton is worth more than a feature-complete mess",
+          "Cron-based simulation is a practical way to demo live data without a real market feed",
+          "Architecting the AI layer as a clean interface makes swapping providers trivial",
+          "JWT with cookies is more secure than localStorage for financial applications",
+          "Background jobs need explicit lifecycle management to avoid memory leaks",
+          "Clear separation between auth, business logic, and data layers makes testing straightforward"
+        ]
+      }
+    }
+  ]
+}
