@@ -1,8 +1,8 @@
 'use client';
 
 import { useEditor, EditorContent } from '@tiptap/react';
-import { BubbleMenu } from '@tiptap/extension-bubble-menu';
-import { FloatingMenu } from '@tiptap/extension-floating-menu';
+import { BubbleMenu } from '@tiptap/react/menus';
+import { FloatingMenu } from '@tiptap/react/menus';
 import StarterKit from '@tiptap/starter-kit';
 import Placeholder from '@tiptap/extension-placeholder';
 import ImageExt from '@tiptap/extension-image';
@@ -182,7 +182,6 @@ export default function RichTextEditor({ content, onChange, placeholder }: Props
       {/* ── Bubble menu (on text selection) ─────────────────────────────── */}
       <BubbleMenu
         editor={editor}
-        tippyOptions={{ duration: 150, placement: 'top' }}
         shouldShow={({ editor, from, to }) => {
           return from !== to && !editor.isActive('image');
         }}
@@ -230,7 +229,6 @@ export default function RichTextEditor({ content, onChange, placeholder }: Props
       {/* ── Floating menu (on empty line) ────────────────────────────────── */}
       <FloatingMenu
         editor={editor}
-        tippyOptions={{ duration: 150, placement: 'left' }}
         shouldShow={({ state }) => {
           const { $from } = state.selection;
           const isEmptyBlock = $from.parent.textContent === '' && $from.parent.type.name === 'paragraph';
