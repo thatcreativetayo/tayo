@@ -90,7 +90,7 @@ export default function BlogPage() {
             Thoughts on design, development, and everything in between.
           </p>
           
-          <div className="flex items-center justify-center gap-4">
+          {/* <div className="flex items-center justify-center gap-4">
             <div className="relative w-full">
               <HugeiconsIcon
                 icon={Search01FreeIcons}
@@ -105,7 +105,7 @@ export default function BlogPage() {
                 className="pl-10 pr-4 py-2 border text-base border-base/10 rounded-full text-sm focus:outline-none focus:border-base/20 w-full max-w-sm"
               />
             </div>
-          </div>
+          </div> */}
         </motion.div>
 
         {/* Tags Filter */}
