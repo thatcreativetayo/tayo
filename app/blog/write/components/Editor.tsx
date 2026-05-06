@@ -124,7 +124,6 @@ export default function Editor({ content, onChange, onSaveShortcut, onLinkShortc
       {/* Slash command floating menu */}
       <FloatingMenu
         editor={editor}
-        tippyOptions={{ duration: 100, placement: 'bottom-start' }}
         shouldShow={() => showSlash}
       >
         <SlashMenu
