@@ -2,32 +2,38 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { HugeiconsIcon } from '@hugeicons/react';
-import { Github, Instagram, Linkedin02FreeIcons, NewTwitterIcon } from '@hugeicons/core-free-icons';
+import { Github, Instagram, NewTwitterIcon } from '@hugeicons/core-free-icons';
 
 const navLinks = [
   { href: "/#projects", label: "projects" },
-  { href: "/me", label: "me" },
+  // { href: "/me", label: "me" },
   { href: "/blog", label: "blog" },
   { href: "/contact", label: "contact" },
 ];
 
 const socials = [
-  { href: "https://x.com/_that_creative_", icon: NewTwitterIcon, label: "Twitter" },
-  { href: "https://instagram.com/_that_creative_", icon: Instagram, label: "Instagram" },
-  { href: "https://linkedin.com/in/tayo-eyitayo", icon: Linkedin02FreeIcons, label: "LinkedIn" },
+  { href: "https://x.com/_tayoszn_", icon: NewTwitterIcon, label: "Twitter" },
+  { href: "https://instagram.com/_tayoszn_", icon: Instagram, label: "Instagram" },
   { href: "https://github.com/thatcreativetayo", icon: Github, label: "GitHub" },
 ];
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
 
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
+
   return (
     <>
       <motion.nav
-        className="flex z-50 fixed justify-between w-full px-4 md:px-9 py-4 md:py-9 bg-[#FAFAFA]"
+        className="flex z-50 fixed left-0 right-0 justify-between max-w-304 w-full mx-auto px-4 md:px-9 py-4 md:py-9 bg-[#FBFAF9]/5 backdrop-blur-sm"
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, ease: [0.21, 0.47, 0.32, 0.98] }}
@@ -60,7 +66,7 @@ export default function Navbar() {
 
         {/* Desktop socials */}
         <motion.div
-          className="hidden md:flex gap-6 items-center"
+          className="hidden md:flex gap-3 items-center"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.4 }}
@@ -69,14 +75,14 @@ export default function Navbar() {
             <motion.a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer"
               whileHover={{ scale: 1.1, y: -2 }} whileTap={{ scale: 0.95 }}
             >
-              <HugeiconsIcon icon={s.icon} size={20} strokeWidth={2} className="text-base" />
+              <HugeiconsIcon icon={s.icon} size={18} strokeWidth={1.7} className="text-base/50 hover:text-base transition-all duration-300" />
             </motion.a>
           ))}
         </motion.div>
 
         {/* Mobile hamburger */}
         <button
-          className="md:hidden flex flex-col justify-center items-center gap-1.5 w-8 h-8"
+          className="md:hidden flex flex-col justify-center items-center gap-1.5 min-w-11 min-h-11"
           onClick={() => setOpen(!open)}
           aria-label="Toggle menu"
         >
@@ -127,9 +133,15 @@ export default function Navbar() {
               ))}
             </nav>
 
-            <div className="flex gap-6 items-center">
+            <div className="flex gap-2 items-center">
               {socials.map((s) => (
-                <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer">
+                <a
+                  key={s.label}
+                  href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="min-w-11 min-h-11 flex items-center justify-center"
+                >
                   <HugeiconsIcon icon={s.icon} size={22} strokeWidth={2} className="text-base/60" />
                 </a>
               ))}

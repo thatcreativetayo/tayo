@@ -367,7 +367,7 @@ export default function BlogPostPage() {
       <article className="max-w-3xl pt-32 mx-auto px-4 sm:px-6 py-12">
         {/* Title */}
         <motion.h1
-          className="text-4xl sm:text-5xl font-bold text-base mb-6 leading-tight"
+          className="text-3xl sm:text-4xl md:text-5xl font-bold text-base mb-6 leading-tight"
           initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}
         >
           {post.title}
@@ -398,21 +398,21 @@ export default function BlogPostPage() {
           <div className="flex items-center gap-2">
             <motion.button
               onClick={handleLike}
-              className={`p-2 rounded-full transition-colors ${liked ? 'text-red-500' : 'text-base/40 hover:text-base'}`}
+              className={`p-2.5 min-w-11 min-h-11 flex items-center justify-center rounded-full transition-colors ${liked ? 'text-red-500' : 'text-base/40 hover:text-base'}`}
               whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}
             >
               <HugeiconsIcon icon={Heart} size={22} />
             </motion.button>
             <motion.button
               onClick={() => setBookmarked(!bookmarked)}
-              className={`p-2 rounded-full transition-colors ${bookmarked ? 'text-base' : 'text-base/40 hover:text-base'}`}
+              className={`p-2.5 min-w-11 min-h-11 flex items-center justify-center rounded-full transition-colors ${bookmarked ? 'text-base' : 'text-base/40 hover:text-base'}`}
               whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}
             >
               <HugeiconsIcon icon={Bookmark01FreeIcons} size={22} />
             </motion.button>
             <motion.button
               onClick={handleShare}
-              className="p-2 rounded-full text-base/40 hover:text-base transition-colors"
+              className="p-2.5 min-w-11 min-h-11 flex items-center justify-center rounded-full text-base/40 hover:text-base transition-colors"
               whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}
             >
               <HugeiconsIcon icon={Share08FreeIcons} size={22} />
@@ -456,21 +456,21 @@ export default function BlogPostPage() {
         >
           <button
             onClick={handleLike}
-            className={`flex items-center gap-2 transition-colors ${liked ? 'text-red-500' : 'text-base/50 hover:text-base'}`}
+            className={`flex items-center gap-2 min-h-11 transition-colors ${liked ? 'text-red-500' : 'text-base/50 hover:text-base'}`}
           >
             <HugeiconsIcon icon={Heart} size={20} />
             <span className="text-sm font-medium">{post.likes}</span>
           </button>
           <button
             onClick={() => setShowComments(!showComments)}
-            className={`flex items-center gap-2 transition-colors ${showComments ? 'text-base' : 'text-base/50 hover:text-base'}`}
+            className={`flex items-center gap-2 min-h-11 transition-colors ${showComments ? 'text-base' : 'text-base/50 hover:text-base'}`}
           >
             <HugeiconsIcon icon={Comment} size={20} />
             <span className="text-sm font-medium">{post.comments.length}</span>
           </button>
           <button
             onClick={handleShare}
-            className="flex items-center gap-2 text-base/50 hover:text-base transition-colors"
+            className="flex items-center gap-2 min-h-11 text-base/50 hover:text-base transition-colors"
           >
             <HugeiconsIcon icon={Share08FreeIcons} size={20} />
             <span className="text-sm font-medium">{post.shares}</span>

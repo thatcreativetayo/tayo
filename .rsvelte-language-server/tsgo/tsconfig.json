@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    "allowArbitraryExtensions": true,
+    "allowImportingTsExtensions": true,
+    "jsx": "preserve",
+    "noEmit": true,
+    "rootDirs": [
+      "//?/C:/Users/Ariyo Eyitayo/Desktop/portfolio",
+      "//?/C:/Users/Ariyo Eyitayo/Desktop/portfolio/.rsvelte-language-server/tsgo/svelte"
+    ]
+  },
+  "files": [
+    "svelte-shims-v4.d.ts",
+    "svelte-native-jsx.d.ts",
+    "svelte-jsx-v4.d.ts"
+  ],
+  "include": [
+    "svelte/**/*",
+    "//?/C:/Users/Ariyo Eyitayo/Desktop/portfolio/next-env.d.ts",
+    "//?/C:/Users/Ariyo Eyitayo/Desktop/portfolio/**/*.ts",
+    "//?/C:/Users/Ariyo Eyitayo/Desktop/portfolio/**/*.tsx",
+    "//?/C:/Users/Ariyo Eyitayo/Desktop/portfolio/.next/types/**/*.ts",
+    "//?/C:/Users/Ariyo Eyitayo/Desktop/portfolio/.next/dev/types/**/*.ts",
+    "//?/C:/Users/Ariyo Eyitayo/Desktop/portfolio/**/*.mts"
+  ],
+  "extends": "//?/C:/Users/Ariyo Eyitayo/Desktop/portfolio/tsconfig.json",
+  "exclude": [
+    "//?/C:/Users/Ariyo Eyitayo/Desktop/portfolio/node_modules"
+  ]
+}

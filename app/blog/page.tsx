@@ -73,11 +73,13 @@ export default function BlogPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#fbfbfb]">
+    <div className="min-h-screen flex scroll-smooth relative flex-col h-full items-center  bg-[#fbfbfb]">
+       <div className="hidden lg:block h-full min-h-screen z-20 absolute left-40 border text-black/10 border-long-dashed"></div>
+      <div className="hidden lg:block h-full min-h-screen z-20 absolute right-40 border text-black/10 border-long-dashed"></div>
       {/* Header */}
       <Navbar />
 
-      <div className="max-w-5xl mx-auto px-6 py-12 pt-32">
+      <div className="max-w-304 mx-auto px-6 py-12 pt-32">
         {/* Hero Section */}
         <motion.div
           className="mb-16 text-center"
@@ -85,9 +87,9 @@ export default function BlogPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-base mb-4">My Blog</h1>
-          <p className="text-base sm:text-xl text-base/70 max-w-2xl mx-auto mb-6">
-            Thoughts on design, development, and everything in between.
+          <h1 className="text-4xl sm:text-5xl md:text-6xl serif font-bold text-base mb-4">thoughts.</h1>
+          <p className="text-base sm:text-lg text-base/70 max-w-2xl mx-auto mb-6">
+            thoughts on design, development, and everything in between.
           </p>
           
           {/* <div className="flex items-center justify-center gap-4">
@@ -190,7 +192,7 @@ export default function BlogPage() {
                       </p>
 
                       {/* Meta */}
-                      <div className="flex items-center justify-between">
+                      <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
                         <div className="flex items-center gap-4 text-sm text-base/60">
                           <span>
                             {new Date(post.createdAt).toLocaleDateString("en-US", {
@@ -216,7 +218,7 @@ export default function BlogPage() {
                       </div>
 
                       {/* Tags */}
-                      <div className="flex gap-2 mt-4">
+                      <div className="flex flex-wrap gap-2 mt-4">
                         {post.tags.map((tag) => (
                           <span
                             key={tag}

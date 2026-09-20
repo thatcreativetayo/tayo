@@ -1,14 +1,16 @@
 'use client';
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { useEffect, useState } from "react";
 import BlogCard, { BlogCardProps } from "../BlogCard";
 import { getAllBlogs } from "@/lib/api";
 import Link from "next/link";
+import { easeOut, viewportOnce } from "@/lib/motion";
 
 export default function Blog() {
   const [posts, setPosts] = useState<BlogCardProps[]>([]);
   const [loading, setLoading] = useState(true);
+  const reduceMotion = useReducedMotion();
 
   useEffect(() => {
     getAllBlogs({ limit: 4 })
@@ -36,18 +38,17 @@ export default function Blog() {
   return (
     <div className="flex flex-col items-center py-16 relative w-full px-4 sm:px-6">
       <motion.h1
-        className="text-3xl sm:text-4xl md:text-5xl font-semibold text-base text-center"
-        initial={{ opacity: 0, y: 30 }}
+        className="text-3xl sm:text-4xl serif md:text-5xl font-semibold text-base text-center"
+        initial={reduceMotion ? false : { opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.8, ease: [0.21, 0.47, 0.32, 0.98] }}
+        viewport={viewportOnce}
+        transition={{ duration: 0.7, ease: easeOut }}
       >
-        Where I dump my thoughts...
+        where i dump my thoughts...
       </motion.h1>
 
       <div className="flex mt-10 w-full max-w-3xl flex-col border-t border-base/15">
         {loading ? (
-          // Skeleton placeholders
           [1, 2, 3, 4].map((i) => (
             <div key={i} className="flex justify-between py-7 border-b border-base/15 gap-6 animate-pulse">
               <div className="flex flex-col gap-3 flex-1">
@@ -64,10 +65,14 @@ export default function Blog() {
           posts.map((post, index) => (
             <motion.div
               key={post.slug}
-              initial={{ opacity: 0, y: 20 }}
+              initial={reduceMotion ? false : { opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.6, delay: index * 0.1, ease: [0.21, 0.47, 0.32, 0.98] }}
+              transition={{
+                duration: 0.6,
+                delay: reduceMotion ? 0 : index * 0.08,
+                ease: easeOut,
+              }}
             >
               <BlogCard {...post} />
             </motion.div>
@@ -77,10 +82,10 @@ export default function Blog() {
 
       {!loading && posts.length > 0 && (
         <motion.div
-          initial={{ opacity: 0, y: 10 }}
+          initial={reduceMotion ? false : { opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.4 }}
+          transition={{ duration: 0.5, delay: reduceMotion ? 0 : 0.2, ease: easeOut }}
           className="mt-8"
         >
           <Link

@@ -16,7 +16,9 @@ export default function ProjectCaseStudy() {
 
   if (!project) {
     return (
-      <div className="min-h-screen bg-[#fbfbfb] flex items-center justify-center">
+       <div className="flex bg-light scroll-smooth relative flex-col h-full items-center ">
+            <div className="hidden lg:block h-full min-h-screen z-20 absolute left-40 border text-black/10 border-long-dashed"></div>
+      <div className="hidden lg:block h-full min-h-screen z-20 absolute right-40 border text-black/10 border-long-dashed"></div>
         <div className="text-center">
           <h1 className="text-4xl font-bold text-base mb-4">Project Not Found</h1>
           <Link href="/#projects" className="text-base/60 hover:text-base underline">
@@ -28,7 +30,9 @@ export default function ProjectCaseStudy() {
   }
 
   return (
-    <div className="min-h-screen bg-[#fbfbfb]">
+     <div className="flex scroll-smooth relative bg-light flex-col h-full items-center ">
+            <div className="hidden lg:block h-full min-h-screen z-20 absolute left-40 border text-black/10 border-long-dashed"></div>
+      <div className="hidden lg:block h-full min-h-screen z-20 absolute right-40 border text-black/10 border-long-dashed"></div>
       <Navbar />
       
       <div className="max-w-4xl mx-auto px-4 md:px-6 py-12 pt-32">

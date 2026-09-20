@@ -69,15 +69,15 @@ export default function BlogCard({ slug, title, description, tags, likes, commen
         >
           <div className="flex gap-1 items-center">
             <HugeiconsIcon icon={Heart} size={16} strokeWidth={2} className="text-base" />
-            <p className="text-base/60 text-sm">{likes} likes</p>
+            <p className="text-base/60 text-sm">{likes}<span className="hidden sm:inline"> likes</span></p>
           </div>
           <div className="flex gap-1 items-center">
             <HugeiconsIcon icon={Comment} size={16} strokeWidth={2} className="text-base" />
-            <p className="text-base/60 text-sm">{comments} comments</p>
+            <p className="text-base/60 text-sm">{comments}<span className="hidden sm:inline"> comments</span></p>
           </div>
           <div className="flex gap-1 items-center">
             <HugeiconsIcon icon={Share08FreeIcons} size={16} strokeWidth={2} className="text-base" />
-            <p className="text-base/60 text-sm">{shares} shares</p>
+            <p className="text-base/60 text-sm">{shares}<span className="hidden sm:inline"> shares</span></p>
           </div>
         </motion.div>
       </div>

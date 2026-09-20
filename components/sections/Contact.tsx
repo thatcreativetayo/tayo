@@ -213,7 +213,7 @@ export default function Contact() {
   };
 
   return (
-    <div className="flex min-h-screen w-full items-center justify-center bg-base/3 px-4 sm:px-8 py-16 sm:py-20">
+    <div className="flex min-h-screen w-full max-w-304 items-center justify-center bg-base/3 px-4 sm:px-8 py-16 sm:py-20">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 w-full max-w-6xl items-center">
 
         {/* Form */}
@@ -227,28 +227,28 @@ export default function Contact() {
 
           <div className="flex flex-col gap-3">
             <h2 className="text-base text-2xl sm:text-[2.1rem] font-semibold leading-tight tracking-tight">
-              Always searching for new problems, fun teams and great ideas.
+              always searching for new problems, fun teams and great ideas.
             </h2>
-            <p className="text-base/50 text-sm">If this sounds like you, reach out :)</p>
+            <p className="text-base/50 text-sm">if this sounds like you, reach out :)</p>
           </div>
 
           <div className="flex flex-col gap-1 mt-2">
             <input
               className={inputClass}
-              placeholder="Name [or nickname, we don't judge]"
+              placeholder="name [or nickname, we don't judge]"
               name="fi-sender-firstName"
               required
             />
             <input
               className={inputClass}
-              placeholder="E-mail address"
+              placeholder="e-mail address"
               type="email"
               name="fi-sender-email"
               required
             />
             <textarea
               className={`${inputClass} resize-none min-h-[100px]`}
-              placeholder="Message"
+              placeholder="message"
               name="fi-text-message"
               required
             />
@@ -264,13 +264,13 @@ export default function Contact() {
             whileTap={{ scale: 0.97 }}
             className="self-start flex items-center gap-2 bg-base/5 hover:bg-base/10 text-base text-sm font-medium px-5 py-2.5 rounded-full transition-colors duration-200 disabled:opacity-50"
           >
-            {status === 'loading' ? 'Sending...' : 'Send'}
+            {status === 'loading' ? 'sending...' : 'send'}
             <HugeiconsIcon icon={ArrowRight01FreeIcons} size={14} />
           </motion.button>
         </form>
 
-        <div className="hidden md:flex w-full justify-center bg-[#FBFBFB] rounded-3xl border-3 border-base/5">
-          <Image src="/contact.png" alt="" width={1000} height={1000} className="h-auto max-h-145 w-auto" />
+        <div className="hidden md:flex w-full justify-center rounded-3xl">
+          <Image src="/contactimg.png" alt="" width={1000} height={1000} className="h-120 w-auto" />
         </div>
       </div>
 

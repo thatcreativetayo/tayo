@@ -1,10 +1,10 @@
 @import "tailwindcss";
 @import "lenis/dist/lenis.css";
 @import "../app/blog/write/styles/prose.css";
-
+@import "./fonts.css";
 @font-face {
   font-family: SF;
-  src: url("../public/Inter-VariableFont_opsz\,wght.ttf");
+  src: url("/Inter-VariableFont_opsz\,wght.ttf");
 }
 @font-face {
   font-family: Piazolla;
@@ -12,22 +12,23 @@
 }
 
 @theme inline {
-  --color-base: #2D1909;
+  --color-light: #FBFAF9;
+  --color-base: #302f2d;
 }
 
 body {
   font-family: "SF", sans-serif;
   letter-spacing: -0.7px;
-  cursor: none;
 }
 
-* {
-  cursor: none !important;
-}
+@media (pointer: fine) {
+  body {
+    cursor: none;
+  }
 
-h1 {
-  font-family: "Piazolla", sans-serif;
-  letter-spacing: -0.5px;
+  * {
+    cursor: none !important;
+  }
 }
 
 * {
@@ -39,7 +40,78 @@ h1 {
   display: none; /* Chrome, Safari, Opera */
 }
 
-html.lenis, html.lenis body {
+@font-face {
+  font-family: "Caveat";
+  src: url("/Caveat-VariableFont_wght.ttf");
+}
+
+
+* {
+  box-sizing: border-box;
+  letter-spacing: -1px;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+*::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, newer Edge */
+}
+
+html {
+  scroll-behavior: auto;
+}
+
+body {
+  letter-spacing: -0.5px;
+  font-family: "Poppins";
+  -webkit-font-smoothing: antialiased
+}
+
+.serif {
+  letter-spacing: -0.5px;
+  font-family: "Caveat";
+  -webkit-font-smoothing: antialiased
+}  
+
+
+.border-custom-dashed {
+  border-style: dashed;
+  border-image: repeating-linear-gradient(
+    to right,
+    currentColor 0,
+    currentColor 20px,
+    transparent 20px,
+    transparent 40px
+  ) 1;
+}
+
+.border-long-dashed {
+  border: 1px dashed transparent;
+  background: 
+    linear-gradient(white, white) padding-box,
+    repeating-linear-gradient(
+      to bottom,
+      currentColor 0px,
+      currentColor 15px,
+      transparent 15px,
+      transparent 28px
+    ) border-box;
+}
+
+.border-long-dashed2 {
+  border-top: 2px dashed transparent;
+  background: 
+    linear-gradient(white, white) padding-box,
+    repeating-linear-gradient(
+      to right,
+      currentColor 0px,
+      currentColor 15px,
+      transparent 15px,
+      transparent 28px
+    ) border-box;
+}
+
+html.lenis,
+html.lenis body {
   height: auto;
 }
 
@@ -59,7 +131,6 @@ html.lenis, html.lenis body {
   pointer-events: none;
 }
 
-
 /* Tiptap Editor Styles */
 .ProseMirror {
   outline: none;
@@ -68,7 +139,7 @@ html.lenis, html.lenis body {
 .ProseMirror p.is-editor-empty:first-child::before {
   content: attr(data-placeholder);
   float: left;
-  color: rgba(45, 25, 9, 0.3);
+  color: rgba(48, 47, 45, 0.3);
   pointer-events: none;
   height: 0;
 }
@@ -104,23 +175,23 @@ html.lenis, html.lenis body {
 }
 
 .ProseMirror blockquote {
-  border-left: 4px solid rgba(45, 25, 9, 0.2);
+  border-left: 4px solid rgba(48, 47, 45, 0.2);
   padding-left: 1.5rem;
   margin: 1.5rem 0;
   font-style: italic;
-  color: rgba(45, 25, 9, 0.8);
+  color: rgba(48, 47, 45, 0.8);
 }
 
 .ProseMirror code {
-  background-color: rgba(45, 25, 9, 0.05);
+  background-color: rgba(48, 47, 45, 0.05);
   padding: 0.2rem 0.4rem;
   border-radius: 0.25rem;
   font-size: 0.9em;
-  font-family: 'Courier New', monospace;
+  font-family: "Courier New", monospace;
 }
 
 .ProseMirror pre {
-  background-color: rgba(45, 25, 9, 0.05);
+  background-color: rgba(48, 47, 45, 0.05);
   padding: 1rem;
   border-radius: 0.5rem;
   overflow-x: auto;
@@ -146,7 +217,7 @@ html.lenis, html.lenis body {
 }
 
 .ProseMirror a {
-  color: #2D1909;
+  color: #302f2d;
   text-decoration: underline;
 }
 
@@ -156,7 +227,7 @@ html.lenis, html.lenis body {
 
 /* Prose styles for blog post view */
 .prose {
-  color: #2D1909;
+  color: #302f2d;
   max-width: none;
 }
 
@@ -173,23 +244,23 @@ html.lenis, html.lenis body {
 }
 
 .prose blockquote {
-  border-left: 4px solid rgba(45, 25, 9, 0.2);
+  border-left: 4px solid rgba(48, 47, 45, 0.2);
   padding-left: 1.5rem;
   margin: 2rem 0;
   font-style: italic;
-  color: rgba(45, 25, 9, 0.8);
+  color: rgba(48, 47, 45, 0.8);
   font-size: 1.25rem;
 }
 
 .prose code {
-  background-color: rgba(45, 25, 9, 0.05);
+  background-color: rgba(48, 47, 45, 0.05);
   padding: 0.2rem 0.4rem;
   border-radius: 0.25rem;
   font-size: 0.9em;
 }
 
 .prose pre {
-  background-color: rgba(45, 25, 9, 0.05);
+  background-color: rgba(48, 47, 45, 0.05);
   padding: 1.5rem;
   border-radius: 0.5rem;
   overflow-x: auto;

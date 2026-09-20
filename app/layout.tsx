@@ -3,16 +3,16 @@ import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
 import Cursor from "@/components/Cursor";
 
-const BASE_URL = "https://thatcreative.vercel.app";
+const BASE_URL = "https://tayoszn.vercel.app";
 
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
   title: {
-    default: "tayo. — Product Engineer & Designer",
+    default: "tayo.",
     template: "%s | tayo.",
   },
   description:
-    "tayo. is a product engineer and designer who builds fast, beautiful, and functional digital products. Based in Nigeria.",
+    "i build stuff.",
   keywords: [
     "tayo.",
     "product engineer",
@@ -31,25 +31,25 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: BASE_URL,
     siteName: "tayo.",
-    title: "tayo. — Product Engineer & Designer",
+    title: "tayo.",
     description:
-      "tayo. builds fast, beautiful, and functional digital products. Designer and engineer in one.",
+      "i build stuff..",
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "tayo. — Product Engineer & Designer",
+        alt: "tayo.",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    site: "@_that_creative_",
-    creator: "@_that_creative_",
-    title: "tayo. — Product Engineer & Designer",
+    site: "@_tayoszn_",
+    creator: "@_tayoszn_",
+    title: "tayo.",
     description:
-      "tayo. builds fast, beautiful, and functional digital products.",
+      "i build stuff.",
     images: ["/og-image.png"],
   },
   robots: {
@@ -64,9 +64,9 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: "/logo.svg",
-    shortcut: "/logo.svg",
-    apple: "/logo.svg",
+    icon: "/tayo.jpg",
+    shortcut: "/tayo.jpg",
+    apple: "/tayo.jpg",
   },
   manifest: "/site.webmanifest",
   alternates: { canonical: BASE_URL },
@@ -77,7 +77,7 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className="h-screen antialiased">
-      <body className="min-h-screen w-screen bg-[#FBFBFB] flex flex-col cursor-none">
+      <body className="min-h-screen w-full overflow-x-hidden bg-[#FBFAF9] flex flex-col">
         <SmoothScroll />
         <Cursor />
         {children}

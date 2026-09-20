@@ -1,20 +1,20 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Blog",
+  title: "blog",
   description:
-    "Thoughts on design, engineering, product, and everything in between — by Tayo Eyitayo.",
+    "thoughts on design, engineering, product, and everything in between by tayo.",
   alternates: { canonical: "/blog" },
   openGraph: {
     url: "/blog",
-    title: "Blog — Tayo Eyitayo",
+    title: "blog — tayo.",
     description:
-      "Thoughts on design, engineering, product, and everything in between.",
+      "thoughts on design, engineering, product, and everything in between.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Blog — Tayo Eyitayo",
-    description: "Thoughts on design, engineering, product, and everything in between.",
+    title: "blog — tayo.",
+    description: "thoughts on design, engineering, product, and everything in between.",
   },
 };
 
