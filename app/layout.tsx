@@ -64,9 +64,9 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: "/tayo.jpg",
-    shortcut: "/tayo.jpg",
-    apple: "/tayo.jpg",
+    icon: "/favicon.png",
+    shortcut: "/favicon.png",
+    apple: "/favicon.png",
   },
   manifest: "/site.webmanifest",
   alternates: { canonical: BASE_URL },
