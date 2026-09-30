@@ -6,7 +6,7 @@ export default function Cursor() {
   const [enabled, setEnabled] = useState(false);
   const dotRef = useRef<HTMLDivElement>(null);
   const trailsRef = useRef<HTMLDivElement[]>([]);
-  const TRAIL_COUNT = 8;
+  const TRAIL_COUNT = 4; // Reduced from 8 to 4 for better performance
   const pos = useRef({ x: -100, y: -100 });
   const trail = useRef<{ x: number; y: number }[]>(
     Array.from({ length: TRAIL_COUNT }, () => ({ x: -100, y: -100 }))
@@ -15,6 +15,14 @@ export default function Cursor() {
 
   useEffect(() => {
     const mq = window.matchMedia('(pointer: fine)');
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    
+    // Disable cursor animation if user prefers reduced motion
+    if (reducedMotion) {
+      setEnabled(false);
+      return;
+    }
+    
     setEnabled(mq.matches);
     const onChange = (e: MediaQueryListEvent) => setEnabled(e.matches);
     mq.addEventListener('change', onChange);
@@ -27,10 +35,12 @@ export default function Cursor() {
     const onMove = (e: MouseEvent) => {
       pos.current = { x: e.clientX, y: e.clientY };
     };
-    window.addEventListener('mousemove', onMove);
+    
+    // Use passive listener for better scroll performance
+    window.addEventListener('mousemove', onMove, { passive: true });
 
     const animate = () => {
-      // Shift trail — each segment follows the one before it
+      // Shift trail with fewer calculations
       for (let i = TRAIL_COUNT - 1; i > 0; i--) {
         trail.current[i].x += (trail.current[i - 1].x - trail.current[i].x) * 0.35;
         trail.current[i].y += (trail.current[i - 1].y - trail.current[i].y) * 0.35;
@@ -38,17 +48,17 @@ export default function Cursor() {
       trail.current[0].x += (pos.current.x - trail.current[0].x) * 0.45;
       trail.current[0].y += (pos.current.y - trail.current[0].y) * 0.45;
 
-      // Main dot follows cursor tightly
+      // Main dot - use translate3d for GPU acceleration
       if (dotRef.current) {
-        dotRef.current.style.transform = `translate(${pos.current.x - 4}px, ${pos.current.y - 4}px)`;
+        dotRef.current.style.transform = `translate3d(${pos.current.x - 4}px, ${pos.current.y - 4}px, 0)`;
       }
 
-      // Trail dots
+      // Trail dots - use translate3d and batch updates
       trailsRef.current.forEach((el, i) => {
         if (!el) return;
         const scale = 1 - (i / TRAIL_COUNT) * 0.75;
         const opacity = 1 - (i / TRAIL_COUNT) * 0.85;
-        el.style.transform = `translate(${trail.current[i].x - 4}px, ${trail.current[i].y - 4}px) scale(${scale})`;
+        el.style.transform = `translate3d(${trail.current[i].x - 4}px, ${trail.current[i].y - 4}px, 0) scale(${scale})`;
         el.style.opacity = String(opacity);
       });
 

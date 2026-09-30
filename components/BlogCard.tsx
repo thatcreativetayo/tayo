@@ -94,6 +94,7 @@ export default function BlogCard({ slug, title, description, tags, likes, commen
           <img
             src={coverImage}
             alt={title}
+            loading="lazy"
             className="h-20 sm:h-full w-auto max-w-24 sm:max-w-32 object-cover rounded-lg"
           />
         </motion.div>

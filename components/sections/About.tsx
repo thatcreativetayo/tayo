@@ -7,14 +7,14 @@ import { motion, useReducedMotion } from "framer-motion";
 import { easeOut, fadeUp, staggerChildren, viewportOnce } from "@/lib/motion";
 
 const photos = [
-  { src: "/me/food.png", label: "fav food..." },
-  { src: "/me/jos.png", label: "jos GOATED view." },
-  { src: "/me/mac.png", label: "dream setup." },
-  { src: "/me/me.jpg", label: "this guy just seems chill, like me." },
-  { src: "/me/sun.jpg", label: "random pic of the sun." },
-  { src: "/me/teejay.jpg", label: "childhood pic, lol." },
-  { src: "/me/water.jpg", label: "beautiful sea view" },
-  { src: "/me/meme.jpg", label: "my favourite meme." },
+  { src: "/me/food.webp", label: "fav food...", width: 200, height: 267 },
+  { src: "/me/jos.webp", label: "jos GOATED view.", width: 200, height: 267 },
+  { src: "/me/mac.webp", label: "dream setup.", width: 200, height: 267 },
+  { src: "/me/me.webp", label: "this guy just seems chill, like me.", width: 200, height: 267 },
+  { src: "/me/sun.webp", label: "random pic of the sun.", width: 200, height: 267 },
+  { src: "/me/teejay.webp", label: "childhood pic, lol.", width: 200, height: 267 },
+  { src: "/me/water.webp", label: "beautiful sea view", width: 200, height: 267 },
+  { src: "/me/meme.webp", label: "my favourite meme.", width: 200, height: 267 },
 ];
 
 // slight fixed rotation per photo so it reads as a natural fan, not perfectly aligned
@@ -36,18 +36,22 @@ const OffScreen = () => {
       >
         i build stuff,
         <Image
-          src="/cursor.png"
+          src="/cursor.webp"
           alt="logo"
-          width={1000}
-          height={1000}
+          width={32}
+          height={32}
+          loading="lazy"
+          quality={85}
           className="size-8 border-3 border-white rounded-xl shadow-[0px_6px_6px_0px_#00000015,inset_0_0_14px_#000000] inline -rotate-7 mx-1"
         />
         code mostly,
         <Image
-          src="/figma.png"
+          src="/figma.webp"
           alt="logo"
-          width={1000}
-          height={1000}
+          width={32}
+          height={32}
+          loading="lazy"
+          quality={85}
           className="size-8 object-cover border-3 border-white rounded-xl shadow-[0px_6px_6px_0px_#00000015,inset_0_0_14px_#000000] inline -rotate-7 mx-1"
         />
         sometimes design, occasionally both at 2am for no good reason. no real
@@ -57,18 +61,22 @@ const OffScreen = () => {
         is where it all ends up eventually, the stuff that made it and the stuff
         that didn't. off the clock, I&apos;m probably rewatching an{" "}
         <Image
-          src="/aot.png"
+          src="/aot.webp"
           alt=""
-          width={36}
-          height={36}
+          width={32}
+          height={32}
+          loading="lazy"
+          quality={85}
           className="size-8 object-cover border-3 border-white rounded-xl shadow-[0px_6px_6px_0px_#00000015,inset_0_0_14px_#000000] inline -rotate-7 mx-1"
         />{" "}
         anime arc or grinding{" "}
         <Image
-          src="/fc.png"
+          src="/fc.webp"
           alt=""
-          width={36}
-          height={36}
+          width={32}
+          height={32}
+          loading="lazy"
+          quality={85}
           className="size-8 object-cover border-3 border-white rounded-xl shadow-[0px_6px_6px_0px_#00000015,inset_0_0_14px_#000000] inline -rotate-7 mx-1"
         />{" "}
         FC26.
@@ -112,8 +120,10 @@ const OffScreen = () => {
                   <Image
                     src={photo.src}
                     alt={photo.label}
-                    width={270}
-                    height={360}
+                    width={photo.width}
+                    height={photo.height}
+                    loading="lazy"
+                    quality={80}
                     className="w-full h-full object-cover"
                   />
                 </div>

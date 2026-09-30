@@ -3,7 +3,7 @@ import CallToAction from "@/components/CallToAction";
 import Navbar from "@/components/Navbar";
 import Blog from "@/components/sections/Blog";
 import Contact from "@/components/sections/Contact";
-import Hero from "@/components/sections/Hero";
+import Hero from "@/components/sections/HeroOptimized";
 import Spacer from "@/components/Spacer";
 import About from "@/components/sections/About";
 import Projects from "@/components/sections/Projects";

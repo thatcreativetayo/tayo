@@ -2,58 +2,44 @@
 
 import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { easeOut, fadeUp, staggerChildren } from "@/lib/motion";
 
 const designs = [
   "/designs/1.png",
-
   "/designs/2.png",
-
   "/designs/3.png",
-
   "/designs/4.png",
-
   "/designs/5.png",
-
   "/designs/6.png",
-
   "/designs/7.png",
-
   "/designs/8.png",
-
   "/designs/9.png",
-
   "/designs/10.png",
-
   "/designs/11.png",
-
   "/designs/12.png",
-
   "/designs/13.png",
-
   "/designs/14.png",
-
   "/designs/15.png",
-
   "/designs/16.png",
-
   "/designs/17.png",
-
   "/designs/18.png",
-
   "/designs/19.png",
-
   "/designs/20.png",
-
   "/designs/21.png",
-
   "/designs/22.png",
 ];
 
 export default function Hero() {
   const [selected, setSelected] = useState<string | null>(null);
+  const [mounted, setMounted] = useState(false);
   const reduceMotion = useReducedMotion();
+
+  // Delay marquee mount to prioritize above-the-fold content
+  useEffect(() => {
+    const timer = setTimeout(() => setMounted(true), 500);
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
      <div className="flex pt-36 flex-col max-w-304 w-full mx-auto px-7 justify-center">
@@ -72,8 +58,9 @@ export default function Hero() {
           <Image
             src="/tayo.jpg"
             alt="logo"
-            width={1000}
-            height={1000}
+            width={40}
+            height={40}
+            priority
             className="size-10 border-3 border-white rounded-xl shadow-[0px_6px_6px_0px_#00000015,inset_0_0_14px_#000000] inline -rotate-7 mx-2"
           />
           tayo.
@@ -103,33 +90,37 @@ export default function Hero() {
         </motion.button>
       </motion.div>
 
-      {/* Carousel — break out of px-7 without forcing fixed width */}
-      <motion.div
-        initial={reduceMotion ? false : { opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.45, ease: easeOut }}
-        className="mt-12 relative overflow-hidden w-[calc(100%+3.5rem)] -mx-7 py-10"
-        style={{
-          WebkitMaskImage:
-            "linear-gradient(to right, transparent 0%, black 10%, black 50%, transparent 100%)",
-          maskImage:
-            "linear-gradient(to right, transparent 0%, black 10%, black 50%, transparent 100%)",
-        }}
-      >
-        <div className="flex w-max marquee-track">
-          {[...designs, ...designs].map((src, i) => (
-            <Image
-              key={i}
-              src={src}
-              alt="design"
-              width={1000}
-              height={1000}
-              onClick={() => setSelected(src)}
-              className="h-44 sm:h-56 md:h-72 w-auto border-4 sm:border-8 border-white rounded-2xl sm:rounded-3xl shadow-[15px_15px_15px_0px_#00000015,inset_0_0_14px_#000000] mx-2 cursor-pointer hover:scale-[1.02] transition-transform duration-300"
-            />
-          ))}
-        </div>
-      </motion.div>
+      {/* Carousel — delayed mount and optimized images */}
+      {mounted && (
+        <motion.div
+          initial={reduceMotion ? false : { opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.45, ease: easeOut }}
+          className="mt-12 relative overflow-hidden w-[calc(100%+3.5rem)] -mx-7 py-10"
+          style={{
+            WebkitMaskImage:
+              "linear-gradient(to right, transparent 0%, black 10%, black 50%, transparent 100%)",
+            maskImage:
+              "linear-gradient(to right, transparent 0%, black 10%, black 50%, transparent 100%)",
+          }}
+        >
+          <div className="flex w-max marquee-track">
+            {[...designs, ...designs].map((src, i) => (
+              <Image
+                key={i}
+                src={src}
+                alt="design"
+                width={600}
+                height={800}
+                loading="lazy"
+                quality={75}
+                onClick={() => setSelected(src)}
+                className="h-44 sm:h-56 md:h-72 w-auto border-4 sm:border-8 border-white rounded-2xl sm:rounded-3xl shadow-[15px_15px_15px_0px_#00000015,inset_0_0_14px_#000000] mx-2 cursor-pointer hover:scale-[1.02] transition-transform duration-300"
+              />
+            ))}
+          </div>
+        </motion.div>
+      )}
 
       {/* Fullscreen modal */}
       {selected && (

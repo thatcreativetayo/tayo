@@ -213,7 +213,7 @@ export default function Contact() {
   };
 
   return (
-    <div className="flex min-h-screen w-full max-w-304 items-center justify-center bg-base/3 px-4 sm:px-8 py-16 sm:py-20">
+    <div className="flex min-h-screen mx-auto w-full max-w-304 items-center justify-center bg-base/3 px-4 sm:px-8 py-16 sm:py-20">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 w-full max-w-6xl items-center">
 
         {/* Form */}
@@ -270,7 +270,7 @@ export default function Contact() {
         </form>
 
         <div className="hidden md:flex w-full justify-center rounded-3xl">
-          <Image src="/contactimg.png" alt="" width={1000} height={1000} className="h-120 w-auto" />
+          <Image src="/contactimg.webp" alt="" width={480} height={480} loading="lazy" quality={80} className="h-120 w-auto" />
         </div>
       </div>
 

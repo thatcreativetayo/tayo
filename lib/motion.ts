@@ -1,38 +1,28 @@
-import type { Transition, Variants } from "framer-motion";
+// Shared motion utilities for Framer Motion
+// Centralized to reduce duplication
 
-/** Primary site ease — soft deceleration */
-export const easeOut = [0.21, 0.47, 0.32, 0.98] as const;
+export const easeOut = [0.16, 1, 0.3, 1] as const;
+export const easeSoft = [0.25, 0.46, 0.45, 0.94] as const;
 
-/** Slightly snappier for micro-interactions */
-export const easeSoft = [0.25, 0.1, 0.25, 1] as const;
+export const viewportOnce = { once: true, margin: "-80px" };
 
-export const fadeUp: Variants = {
+export const fadeUp = {
   hidden: { opacity: 0, y: 24 },
   visible: { opacity: 1, y: 0 },
 };
 
-export const fadeIn: Variants = {
-  hidden: { opacity: 0 },
-  visible: { opacity: 1 },
-};
-
-export const staggerChildren = (stagger = 0.08, delayChildren = 0): Variants => ({
+export const staggerChildren = (stagger = 0.1, delayChildren = 0) => ({
   hidden: {},
   visible: {
-    transition: { staggerChildren: stagger, delayChildren },
+    transition: {
+      staggerChildren: stagger,
+      delayChildren,
+    },
   },
 });
 
-export const sectionTransition = (delay = 0): Transition => ({
+export const sectionTransition = (delay = 0) => ({
   duration: 0.7,
-  delay,
   ease: easeOut,
+  delay,
 });
-
-export const hoverTap = {
-  whileHover: { scale: 1.02, opacity: 0.9 },
-  whileTap: { scale: 0.98 },
-  transition: { duration: 0.2, ease: easeSoft },
-};
-
-export const viewportOnce = { once: true, margin: "-80px" as const };

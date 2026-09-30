@@ -1,6 +1,7 @@
 'use client';
 
 import { useCallback, useReducer, useRef, useState } from 'react';
+import dynamic from 'next/dynamic';
 import { BlogPostDraft, SaveStatus } from './types/blog';
 import { useAutosave } from './hooks/useAutosave';
 import { useDraftRestore } from './hooks/useDraftRestore';
@@ -9,12 +10,21 @@ import CoverUpload from './components/CoverUpload';
 import TitleInput from './components/TitleInput';
 import DescriptionInput from './components/DescriptionInput';
 import TagInput from './components/TagInput';
-import Editor from './components/Editor';
 import WordCount from './components/WordCount';
 import PublishModal from './components/PublishModal';
 import PreviewPanel from './components/PreviewPanel';
 import './styles/prose.css';
 import { createBlog } from '@/lib/api';
+
+// Dynamically import heavy Tiptap editor - don't load until needed
+const Editor = dynamic(() => import('./components/Editor'), {
+  ssr: false,
+  loading: () => (
+    <div className="min-h-[300px] flex items-center justify-center text-base/30">
+      Loading editor...
+    </div>
+  ),
+});
 
 // ── State ──────────────────────────────────────────────────────────────────────
 

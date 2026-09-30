@@ -6,30 +6,30 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 
 const galleryImages = [
-  "/gallery/bread.png",
-  "/gallery/btc.png",
-  "/gallery/Facebook post - 2.png",
-  "/gallery/Frame 2147227527.png",
-  "/gallery/Frame 391.png",
-  "/gallery/IMG_20260321_123618_058.jpg",
-  "/gallery/Instagram post - 3 (1).png",
-  "/gallery/Instagram post - 3.png",
-  "/gallery/Instagram post - 4.png",
-  "/gallery/jordan.png",
-  "/gallery/MacBook Pro 16_ - 35.png",
-  "/gallery/New Project.png",
-  "/gallery/nike.png",
-  "/gallery/portfolio.png",
-  "/gallery/portfolio2.png",
-  "/gallery/studi (3) (1).png",
-  "/gallery/studi (3).png",
-  "/gallery/Twitter header - 6.png",
-  "/gallery/Twitter post - 2.png",
-  "/gallery/Twitter post - 3.png",
-  "/gallery/Twitter post - 4.png",
-  "/gallery/Twitter post - 5.png",
-  "/gallery/Twitter post - 7.png",
-  "/gallery/Twitter post - 8.png",
+  "/gallery/bread.webp",
+  "/gallery/btc.webp",
+  "/gallery/Facebook post - 2.webp",
+  "/gallery/Frame 2147227527.webp",
+  "/gallery/Frame 391.webp",
+  "/gallery/IMG_20260321_123618_058.webp",
+  "/gallery/Instagram post - 3 (1).webp",
+  "/gallery/Instagram post - 3.webp",
+  "/gallery/Instagram post - 4.webp",
+  "/gallery/jordan.webp",
+  "/gallery/MacBook Pro 16_ - 35.webp",
+  "/gallery/New Project.webp",
+  "/gallery/nike.webp",
+  "/gallery/portfolio.webp",
+  "/gallery/portfolio2.webp",
+  "/gallery/studi (3) (1).webp",
+  "/gallery/studi (3).webp",
+  "/gallery/Twitter header - 6.webp",
+  "/gallery/Twitter post - 2.webp",
+  "/gallery/Twitter post - 3.webp",
+  "/gallery/Twitter post - 4.webp",
+  "/gallery/Twitter post - 5.webp",
+  "/gallery/Twitter post - 7.webp",
+  "/gallery/Twitter post - 8.webp",
 ];
 
 const bentoWidths = [
@@ -82,11 +82,11 @@ export default function Me() {
           works. So I don&apos;t either. I design with velocity and build with
           feeling. Off the clock, I&apos;m probably rewatching an{" "}
           <span className="inline-flex items-center mx-1 translate-y-2">
-            <Image src="/aot.png" alt="" width={36} height={36} className="size-9 rotate-2 rounded-xl border border-base/5 object-cover" />
+            <Image src="/aot.webp" alt="" width={36} height={36} className="size-9 rotate-2 rounded-xl border border-base/5 object-cover" />
           </span>{" "}
           anime arc or grinding{" "}
           <span className="inline-flex items-center mx-1 translate-y-2">
-            <Image src="/fc.png" alt="" width={36} height={36} className="size-9 rotate-2 rounded-xl border border-base/5 object-cover" />
+            <Image src="/fc.webp" alt="" width={36} height={36} className="size-9 rotate-2 rounded-xl border border-base/5 object-cover" />
           </span>{" "}
           FC26. Both require the same thing: pattern recognition and the will to
           keep going. If that sounds like what your project needs, I&apos;d love to
@@ -96,23 +96,23 @@ export default function Me() {
         <p className="text-base mt-24 leading-6.75 max-w-4xl mx-auto w-full">
           I didn&apos;t grow up drawing. But the first time I opened{" "}
           <span className="inline-flex items-center mx-1 translate-y-2">
-            <Image src="/figma.png" alt="" width={28} height={28} className="size-7 rotate-2 rounded-lg border border-base/5 object-cover" />
+            <Image src="/figma.webp" alt="" width={28} height={28} className="size-7 rotate-2 rounded-lg border border-base/5 object-cover" />
           </span>{" "}
           Figma and made something out of nothing, something clicked, and it never
           unclicked. I&apos;m from{" "}
           <span className="inline-flex items-center mx-1 translate-y-2">
-            <Image src="/nigeria.png" alt="" width={28} height={28} className="size-7 rotate-2 rounded-lg border border-base/5" />
+            <Image src="/nigeria.webp" alt="" width={28} height={28} className="size-7 rotate-2 rounded-lg border border-base/5" />
           </span>{" "}
           Nigeria, and I think that shapes everything I make. There&apos;s a richness,
           an energy, a refusal to be boring that I carry into every project. Design,
           to me, has always been about feeling, not just looking. I grew up on
           Cartoon Network. I stayed up for{" "}
           <span className="inline-flex items-center mx-1 translate-y-2">
-            <Image src="/aot.png" alt="" width={28} height={28} className="size-7 rotate-2 rounded-lg border border-base/5 object-cover" />
+            <Image src="/aot.webp" alt="" width={28} height={28} className="size-7 rotate-2 rounded-lg border border-base/5 object-cover" />
           </span>{" "}
           Attack on Titan. I design to{" "}
           <span className="inline-flex items-center mx-1 translate-y-2">
-            <Image src="/rnb.png" alt="" width={28} height={28} className="size-7 rotate-2 rounded-lg border border-base/5 object-cover" />
+            <Image src="/rnb.webp" alt="" width={28} height={28} className="size-7 rotate-2 rounded-lg border border-base/5 object-cover" />
           </span>{" "}
           R&amp;B that moves slow and hits hard. All of it taught me the same thing:
           the best stories make you feel seen. So that&apos;s what I build. Products

@@ -1,48 +1,9 @@
 @import "tailwindcss";
-@import "lenis/dist/lenis.css";
-@import "../app/blog/write/styles/prose.css";
 @import "./fonts.css";
-@font-face {
-  font-family: SF;
-  src: url("/Inter-VariableFont_opsz\,wght.ttf");
-}
-@font-face {
-  font-family: Piazolla;
-  src: url("../public/Piazzolla-VariableFont_opsz\,wght.ttf");
-}
 
 @theme inline {
   --color-light: #FBFAF9;
   --color-base: #302f2d;
-}
-
-body {
-  font-family: "SF", sans-serif;
-  letter-spacing: -0.7px;
-}
-
-@media (pointer: fine) {
-  body {
-    cursor: none;
-  }
-
-  * {
-    cursor: none !important;
-  }
-}
-
-* {
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE and Edge */
-}
-
-*::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Opera */
-}
-
-@font-face {
-  font-family: "Caveat";
-  src: url("/Caveat-VariableFont_wght.ttf");
 }
 
 
@@ -61,16 +22,38 @@ html {
 }
 
 body {
+  font-family: "Poppins", sans-serif;
   letter-spacing: -0.5px;
-  font-family: "Poppins";
-  -webkit-font-smoothing: antialiased
+  -webkit-font-smoothing: antialiased;
 }
 
 .serif {
   letter-spacing: -0.5px;
   font-family: "Caveat";
-  -webkit-font-smoothing: antialiased
-}  
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Lenis smooth scroll styles - loaded inline to avoid extra CSS file */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: smooth !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
 
 
 .border-custom-dashed {

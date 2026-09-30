@@ -45,7 +45,7 @@ export default function Navbar() {
             transition={{ duration: 0.5, delay: 0.2 }}
           >
             <Link href="/">
-              <Image src="/logo.svg" alt="Tayo Eyitayo" width={40} height={40} className="w-10 h-auto" />
+              <Image src="/logo.svg" alt="Tayo Eyitayo" width={40} height={40} priority className="w-10 h-auto" />
             </Link>
           </motion.div>
 
