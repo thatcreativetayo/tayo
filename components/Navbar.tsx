@@ -15,7 +15,7 @@ const navLinks = [
 
 const socials = [
   { href: "https://x.com/_tayoszn_", icon: NewTwitterIcon, label: "Twitter" },
-  { href: "https://instagram.com/_tayoszn_", icon: Instagram, label: "Instagram" },
+  // { href: "https://instagram.com/_tayoszn_", icon: Instagram, label: "Instagram" },
   { href: "https://github.com/thatcreativetayo", icon: null, label: "GitHub" },
 ] as const;
 
