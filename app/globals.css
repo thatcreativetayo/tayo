@@ -1,15 +1,17 @@
 @import "tailwindcss";
+@import "@fontsource-variable/inter";
 @import "./fonts.css";
 
 @theme inline {
   --color-light: #FBFAF9;
-  --color-base: #302f2d;
+  --color-base: #1A1A1A;
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter Variable", "Segoe UI", sans-serif;
 }
 
 
 * {
   box-sizing: border-box;
-  letter-spacing: -1px;
+  letter-spacing: -0.5px;
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* IE/Edge */
 }
@@ -22,13 +24,13 @@ html {
 }
 
 body {
-  font-family: "Poppins", sans-serif;
-  letter-spacing: -0.5px;
+  font-family: var(--font-sans);
+  letter-spacing: -0.3px;
   -webkit-font-smoothing: antialiased;
 }
 
 .serif {
-  letter-spacing: -0.5px;
+  letter-spacing: -0.3px;
   font-family: "Caveat";
   -webkit-font-smoothing: antialiased;
 }
