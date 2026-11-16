@@ -21,7 +21,7 @@ export default function Projects() {
       : projectsData.projects.filter((p) => WEB_IDS.includes(p.id));
 
   return (
-    <div id="projects" className="flex lowercase flex-col p-4 md:p-9 relative min-h-screen max-w-304 w-full">
+    <div id="projects" className="flex lowercase flex-col p-4 md:p-9 relative min-h-screen max-w-220 w-full">
       <motion.h2
         className="text-2xl md:text-3xl w-full max-w-4xl text-base"
         initial={reduceMotion ? false : { opacity: 0, y: 24 }}
@@ -59,7 +59,7 @@ export default function Projects() {
           ))}
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10 w-full">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 md:gap-10 w-full">
           {filteredProjects.map((project, index) => (
             <motion.div
               key={project.id}

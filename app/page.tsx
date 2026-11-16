@@ -24,7 +24,7 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <div className="flex scroll-smooth relative flex-col h-full items-center ">
+    <div className="flex scroll-smooth relative flex-col h-full items-center">
             <div className="hidden lg:block h-full min-h-screen z-20 absolute left-100 border text-black/10 border-long-dashed"></div>
       <div className="hidden lg:block h-full min-h-screen z-20 absolute right-100 border text-black/10 border-long-dashed"></div>
       <Navbar />

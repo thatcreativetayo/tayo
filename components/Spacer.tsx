@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function Spacer() {
     return (
-        <div className="bg-[#FAFAFA] text-primary h-16 w-full max-w-304 flex relative">
+        <div className="bg-light text-primary h-16 w-full max-w-220 flex relative">
             {/* Top dashed border */}
             <div className="absolute left-0 top-0 z-40 border-t w-full text-black/10 border-long-dashed2"></div>
             {/* Bottom dashed border */}
@@ -14,7 +14,7 @@ export default function Spacer() {
                     {Array.from({ length: 100 }).map((_, i) => (
                         <div
                             key={i}
-                            className="h-4 w-[200vw] -rotate-45 origin-top-left border border-[#EDEDED]"
+                            className="h-4 w-[200vw] -rotate-45 origin-top-left border border-black/5"
                         />
                     ))}
                 </div>

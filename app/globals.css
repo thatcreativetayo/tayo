@@ -3,8 +3,8 @@
 @import "./fonts.css";
 
 @theme inline {
-  --color-light: #FBFAF9;
-  --color-base: #1A1A1A;
+  --color-light: #EFEFEF;
+  --color-base: #151515;
   --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter Variable", "Segoe UI", sans-serif;
 }
 
@@ -14,6 +14,7 @@
   letter-spacing: -0.5px;
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* IE/Edge */
+  scroll-behavior: smooth;
 }
 *::-webkit-scrollbar {
   display: none; /* Chrome, Safari, newer Edge */
@@ -26,6 +27,12 @@ html {
 body {
   font-family: var(--font-sans);
   letter-spacing: -0.3px;
+  -webkit-font-smoothing: antialiased;
+}
+
+.normal {
+  letter-spacing: -0.3px;
+  font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
 }
 
@@ -250,4 +257,69 @@ html.lenis body {
   border-radius: 0.5rem;
   overflow-x: auto;
   margin: 2rem 0;
+}
+
+
+.hero-carousel {
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 3%,
+    black 97%,
+    transparent
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 3%,
+    black 97%,
+    transparent
+  );
+}
+
+.hero-carousel-track {
+  animation: hero-carousel-scroll 40s linear infinite;
+  will-change: transform;
+}
+
+.hero-carousel:hover .hero-carousel-track {
+  animation-play-state: paused;
+}
+
+.hero-carousel-card {
+  transition:
+    filter 400ms ease,
+    box-shadow 400ms ease;
+}
+
+.hero-carousel-card:hover {
+  z-index: 10;
+  filter: brightness(1.04);
+  box-shadow: 0 16px 35px rgba(0, 0, 0, 0.15);
+}
+
+@keyframes hero-carousel-scroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-carousel {
+    height: 300px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-carousel-track {
+    animation: none !important;
+  }
+
+  .hero-carousel-card {
+    transition: none;
+  }
 }

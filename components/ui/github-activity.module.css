@@ -1,0 +1,135 @@
+.card {
+  width: 100%;
+  margin-top: 5rem;
+  padding: clamp(1.25rem, 3vw, 2rem);
+  overflow: hidden;
+  border: 1px solid rgb(21 21 21 / 8%);
+  border-radius: 1.25rem;
+  background: rgb(255 255 255 / 54%);
+  box-shadow: 0 12px 40px rgb(21 21 21 / 5%);
+  text-align: left;
+  font-family: var(--font-sans);
+  letter-spacing: normal;
+}
+
+.header,
+.summary,
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.eyebrow {
+  margin: 0 0 0.3rem;
+  color: rgb(21 21 21 / 44%);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.title {
+  margin: 0;
+  color: #151515;
+  font-size: clamp(1.3rem, 3vw, 1.75rem);
+  font-weight: 600;
+  letter-spacing: -0.06em;
+}
+
+.profileLink,
+.retry {
+  color: #151515;
+  font-size: 0.75rem;
+  text-decoration: none;
+}
+
+.profileLink {
+  border-bottom: 1px solid rgb(21 21 21 / 25%);
+  white-space: nowrap;
+}
+
+.profileLink:hover,
+.retry:hover {
+  color: rgb(21 21 21 / 60%);
+}
+
+.summary {
+  align-items: baseline;
+  margin-top: 1.5rem;
+}
+
+.summary p {
+  margin: 0;
+  color: rgb(21 21 21 / 55%);
+  font-size: 0.8rem;
+}
+
+.summary strong {
+  color: #151515;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.selectedDay {
+  text-align: right;
+}
+
+.profileLink:focus-visible,
+.retry:focus-visible {
+  outline: 2px solid #151515;
+  outline-offset: 3px;
+}
+
+.footer {
+  margin-top: 1rem;
+  color: rgb(21 21 21 / 50%);
+  font-size: 0.7rem;
+}
+
+.activeDays {
+  color: rgb(21 21 21 / 55%);
+}
+
+.message {
+  margin: 1.5rem 0 0;
+  color: rgb(21 21 21 / 58%);
+  font-size: 0.85rem;
+}
+
+.retry {
+  margin-top: 0.5rem;
+  padding: 0;
+  border: 0;
+  border-bottom: 1px solid rgb(21 21 21 / 25%);
+  background: none;
+  cursor: pointer;
+}
+
+@media (max-width: 520px) {
+  .card {
+    margin-top: 3.5rem;
+  }
+
+  .summary {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .selectedDay {
+    text-align: left;
+  }
+
+  .footer {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .profileLink,
+  .retry {
+    transition: none;
+  }
+}

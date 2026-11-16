@@ -10,7 +10,7 @@ import { Instagram, NewTwitterIcon } from "@hugeicons/core-free-icons";
 const navLinks = [
   { href: "/#projects", label: "projects" },
   { href: "/blog", label: "blog" },
-  { href: "/contact", label: "contact" },
+  // { href: "/contact", label: "contact" },
 ] as const;
 
 const socials = [
@@ -77,7 +77,7 @@ export default function Navbar() {
           {navLinks.map((link) => {
             const isActive =
               (link.href === "/blog" && pathname.startsWith("/blog")) ||
-              (link.href === "/contact" && pathname.startsWith("/contact")) ||
+              // (link.href === "/contact" && pathname.startsWith("/contact")) ||
               (link.href === "/#projects" && pathname === "/");
 
             return (

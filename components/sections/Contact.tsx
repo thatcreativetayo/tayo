@@ -1,285 +1,208 @@
-'use client';
+"use client";
 
-import { useState, useRef, useEffect, useCallback } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight01FreeIcons, Tick01FreeIcons } from "@hugeicons/core-free-icons";
-import { HugeiconsIcon } from "@hugeicons/react";
 import Image from "next/image";
+import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import { GithubIcon, Instagram, NewTwitterIcon } from "@hugeicons/core-free-icons";
+import { HugeiconsIcon } from "@hugeicons/react";
 
-const FORM_ID = "bzygwxxa";
+const EMAIL = "therealteejay25@gmail.com";
 
-// ─── Success Modal ─────────────────────────────────────────────────────────────
-
-function SuccessModal({ onClose }: { onClose: () => void }) {
-  return (
-    <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/30 px-4"
-      onClick={onClose}
-    >
-      <motion.div
-        className="bg-white rounded-2xl w-full max-w-sm p-8 flex flex-col items-center gap-5 text-center"
-        initial={{ scale: 0.9, opacity: 0, y: 20 }}
-        animate={{ scale: 1, opacity: 1, y: 0 }}
-        exit={{ scale: 0.9, opacity: 0, y: 20 }}
-        transition={{ duration: 0.25, ease: [0.21, 0.47, 0.32, 0.98] }}
-        onClick={(e) => e.stopPropagation()}
-      >
-        <div className="w-14 h-14 rounded-full bg-base/5 flex items-center justify-center">
-          <HugeiconsIcon icon={Tick01FreeIcons} size={28} className="text-base" />
-        </div>
-        <div>
-          <h3 className="text-base text-lg font-semibold mb-1">Message sent!</h3>
-          <p className="text-base/50 text-sm">
-            Thanks for reaching out. I&apos;ll get back to you soon.
-          </p>
-        </div>
-        <button
-          onClick={onClose}
-          className="mt-2 px-6 py-2.5 bg-base text-white text-sm font-medium rounded-full hover:bg-base/80 transition-colors"
-        >
-          Close
-        </button>
-      </motion.div>
-    </div>
-  );
+function getLagosDateTime() {
+  const now = new Date();
+  return {
+    time: new Intl.DateTimeFormat("en-GB", {
+      hour: "2-digit",
+      minute: "2-digit",
+      timeZone: "Africa/Lagos",
+    }).format(now),
+    date: new Intl.DateTimeFormat("en-US", {
+      weekday: "long",
+      month: "2-digit",
+      day: "2-digit",
+      year: "numeric",
+      timeZone: "Africa/Lagos",
+    }).format(now),
+    year: new Intl.DateTimeFormat("en", {
+      year: "numeric",
+      timeZone: "Africa/Lagos",
+    }).format(now),
+  };
 }
 
-// ─── Ball Canvas ───────────────────────────────────────────────────────────────
-
-function BallCanvas() {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-  const ball = useRef({ x: 180, y: 140, vx: 3.2, vy: 2.4, radius: 52 });
-  const dragging = useRef(false);
-  const dragOffset = useRef({ x: 0, y: 0 });
-  const lastDragPos = useRef({ x: 0, y: 0 });
-  const dragVel = useRef({ x: 0, y: 0 });
-  const animRef = useRef<number>(0);
-
-  const drawBall = useCallback((ctx: CanvasRenderingContext2D, W: number, H: number) => {
-    const b = ball.current;
-    ctx.clearRect(0, 0, W, H);
-    const shadowY = H - 16;
-    const proximity = Math.max(0.2, 1 - (shadowY - b.y) / (H * 0.9));
-    ctx.save();
-    ctx.translate(b.x, shadowY);
-    ctx.scale(proximity, 0.15);
-    const sg = ctx.createRadialGradient(0, 0, 0, 0, 0, b.radius);
-    sg.addColorStop(0, "rgba(0,0,0,0.22)");
-    sg.addColorStop(1, "rgba(0,0,0,0)");
-    ctx.fillStyle = sg;
-    ctx.beginPath();
-    ctx.arc(0, 0, b.radius * 1.5, 0, Math.PI * 2);
-    ctx.fill();
-    ctx.restore();
-    const grad = ctx.createRadialGradient(
-      b.x - b.radius * 0.35, b.y - b.radius * 0.38, b.radius * 0.04,
-      b.x + b.radius * 0.1, b.y + b.radius * 0.1, b.radius
-    );
-    grad.addColorStop(0, "#c47a3a");
-    grad.addColorStop(0.4, "#8b4513");
-    grad.addColorStop(0.75, "#5c2d0a");
-    grad.addColorStop(1, "#2e1205");
-    ctx.beginPath();
-    ctx.arc(b.x, b.y, b.radius, 0, Math.PI * 2);
-    ctx.fillStyle = grad;
-    ctx.fill();
-    const spec = ctx.createRadialGradient(
-      b.x - b.radius * 0.36, b.y - b.radius * 0.36, 1,
-      b.x - b.radius * 0.28, b.y - b.radius * 0.28, b.radius * 0.55
-    );
-    spec.addColorStop(0, "rgba(255,220,160,0.6)");
-    spec.addColorStop(0.4, "rgba(255,200,120,0.1)");
-    spec.addColorStop(1, "rgba(255,255,255,0)");
-    ctx.beginPath();
-    ctx.arc(b.x, b.y, b.radius, 0, Math.PI * 2);
-    ctx.fillStyle = spec;
-    ctx.fill();
-  }, []);
-
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext("2d")!;
-    const GRAVITY = 0.35;
-    const BOUNCE = 0.74;
-    const loop = () => {
-      const W = canvas.width;
-      const H = canvas.height;
-      const b = ball.current;
-      if (!dragging.current) {
-        b.vy += GRAVITY;
-        b.x += b.vx;
-        b.y += b.vy;
-        if (b.x + b.radius > W) { b.x = W - b.radius; b.vx *= -BOUNCE; }
-        if (b.x - b.radius < 0) { b.x = b.radius; b.vx *= -BOUNCE; }
-        if (b.y + b.radius > H) {
-          b.y = H - b.radius;
-          b.vy *= -BOUNCE;
-          b.vx *= 0.985;
-          if (Math.abs(b.vy) < 1.2) b.vy = -BOUNCE * 6;
-        }
-        if (b.y - b.radius < 0) { b.y = b.radius; b.vy *= -BOUNCE; }
-      }
-      drawBall(ctx, W, H);
-      animRef.current = requestAnimationFrame(loop);
-    };
-    animRef.current = requestAnimationFrame(loop);
-    return () => cancelAnimationFrame(animRef.current);
-  }, [drawBall]);
-
-  const getPos = (e: React.MouseEvent | React.TouchEvent) => {
-    const rect = canvasRef.current!.getBoundingClientRect();
-    const c = canvasRef.current!;
-    const sx = c.width / rect.width;
-    const sy = c.height / rect.height;
-    const src = "touches" in e ? e.touches[0] : e;
-    return { x: (src.clientX - rect.left) * sx, y: (src.clientY - rect.top) * sy };
-  };
-
-  const onDown = (e: React.MouseEvent | React.TouchEvent) => {
-    const pos = getPos(e);
-    const b = ball.current;
-    if (Math.hypot(pos.x - b.x, pos.y - b.y) < b.radius + 10) {
-      dragging.current = true;
-      dragOffset.current = { x: pos.x - b.x, y: pos.y - b.y };
-      lastDragPos.current = pos;
-      dragVel.current = { x: 0, y: 0 };
-    }
-  };
-
-  const onMove = (e: React.MouseEvent | React.TouchEvent) => {
-    if (!dragging.current) return;
-    const pos = getPos(e);
-    dragVel.current = { x: (pos.x - lastDragPos.current.x) * 0.75, y: (pos.y - lastDragPos.current.y) * 0.75 };
-    lastDragPos.current = pos;
-    ball.current.x = pos.x - dragOffset.current.x;
-    ball.current.y = pos.y - dragOffset.current.y;
-  };
-
-  const onUp = () => {
-    if (!dragging.current) return;
-    dragging.current = false;
-    ball.current.vx = dragVel.current.x * 1.5;
-    ball.current.vy = dragVel.current.y * 1.5;
-  };
-
-  return (
-    <canvas
-      ref={canvasRef}
-      width={360}
-      height={460}
-      className="w-full h-full cursor-grab active:cursor-grabbing select-none touch-none"
-      onMouseDown={onDown} onMouseMove={onMove} onMouseUp={onUp} onMouseLeave={onUp}
-      onTouchStart={onDown} onTouchMove={onMove} onTouchEnd={onUp}
-    />
-  );
-}
-
-// ─── Contact ──────────────────────────────────────────────────────────────────
+const socials = [
+  {
+    label: "X",
+    href: "https://x.com/_tayoszn_",
+    icon: NewTwitterIcon,
+  },
+  // {
+  //   label: "Instagram",
+  //   href: "https://instagram.com/_tayoszn_",
+  //   icon: Instagram,
+  // },
+  {
+    label: "GitHub",
+    href: "https://github.com/thatcreativetayo",
+    icon: null,
+  },
+];
 
 export default function Contact() {
-  const formRef = useRef<HTMLFormElement>(null);
-  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
-  const [errorMsg, setErrorMsg] = useState<string | null>(null);
+  const [dateTime, setDateTime] = useState<ReturnType<
+    typeof getLagosDateTime
+  > | null>(null);
 
-  const inputClass =
-    "w-full bg-transparent text-base text-sm placeholder:text-base/30 border-b border-base/10 py-4 outline-none focus:border-base/40 transition-colors duration-200";
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setStatus('loading');
-    setErrorMsg(null);
-
-    const formData = new FormData(e.currentTarget);
-
-    try {
-      const res = await fetch(`https://forminit.com/f/${FORM_ID}`, {
-        method: 'POST',
-        headers: { Accept: 'application/json' },
-        body: formData,
-      });
-
-      if (!res.ok) {
-        const data = await res.json().catch(() => ({}));
-        throw new Error((data as { message?: string }).message || 'Submission failed');
-      }
-
-      setStatus('success');
-      formRef.current?.reset();
-    } catch (err: unknown) {
-      setStatus('error');
-      setErrorMsg(err instanceof Error ? err.message : 'Something went wrong. Please try again.');
-    }
-  };
+  useEffect(() => {
+    const updateDateTime = () => setDateTime(getLagosDateTime());
+    updateDateTime();
+    const interval = window.setInterval(updateDateTime, 60_000);
+    return () => window.clearInterval(interval);
+  }, []);
 
   return (
-    <div className="flex min-h-screen mx-auto w-full max-w-304 items-center justify-center bg-base/3 px-4 sm:px-8 py-16 sm:py-20">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 w-full max-w-6xl items-center">
+    <footer
+      id="contact"
+      className="relative isolate mx-auto flex min-h-[600px] w-full max-w-220 flex-col overflow-hidden bg-[#0d0e0e] text-white"
+      aria-label="Contact and footer"
+    >
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-x-0 top-0 z-0 h-[65%] opacity-60 [background-image:radial-gradient(rgba(255,255,255,0.12)_0.7px,transparent_0.7px)] [background-size:15px_15px]"
+      />
 
-        {/* Form */}
-        <form ref={formRef} onSubmit={handleSubmit} className="flex flex-col gap-8">
-          <div className="flex">
-            <span className="flex items-center gap-1.5 text-xs border border-base/10 rounded-full px-3 py-1 text-base/60">
-              <span className="w-1.5 h-1.5 rounded-full bg-green-400 inline-block" />
-              Available
-            </span>
-          </div>
+      <div className="relative z-10 flex min-h-[360px] flex-1 flex-col px-6 pt-10 sm:px-10 sm:pt-12">
+        <div className="mx-auto flex w-full max-w-[800px] flex-1 flex-col">
+          <Image
+            src="/tayo.webp"
+            alt=""
+            width={40}
+            height={40}
+            className="size-10 rounded-xl border border-white/35 object-cover grayscale"
+          />
 
-          <div className="flex flex-col gap-3">
-            <h2 className="text-base text-2xl sm:text-[2.1rem] font-semibold leading-tight tracking-tight">
-              always searching for new problems, fun teams and great ideas.
-            </h2>
-            <p className="text-base/50 text-sm">if this sounds like you, reach out :)</p>
-          </div>
+          <h2 className="mt-5 max-w-[480px] text-[clamp(2rem,4vw,2.5rem)] font-semibold leading-[1.05] tracking-[-1.02em] text-white/90 sm:text-[clamp(2.5rem,4vw,3rem)]">
+            Let&apos;s build something
+            <br />
+            people actually use.
+          </h2>
 
-          <div className="flex flex-col gap-1 mt-2">
-            <input
-              className={inputClass}
-              placeholder="name [or nickname, we don't judge]"
-              name="fi-sender-firstName"
-              required
-            />
-            <input
-              className={inputClass}
-              placeholder="e-mail address"
-              type="email"
-              name="fi-sender-email"
-              required
-            />
-            <textarea
-              className={`${inputClass} resize-none min-h-[100px]`}
-              placeholder="message"
-              name="fi-text-message"
-              required
-            />
-          </div>
-
-          {errorMsg && (
-            <p className="text-red-500 text-xs -mt-4">{errorMsg}</p>
-          )}
-
-          <motion.button
-            type="submit"
-            disabled={status === 'loading'}
+          <motion.a
+            href={`mailto:${EMAIL}`}
+            whileHover={{ y: -2 }}
             whileTap={{ scale: 0.97 }}
-            className="self-start flex items-center gap-2 bg-base/5 hover:bg-base/10 text-base text-sm font-medium px-5 py-2.5 rounded-full transition-colors duration-200 disabled:opacity-50"
+            className="mt-5 inline-flex min-h-10 w-fit items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-medium text-[#151515] transition-colors hover:bg-white/85"
           >
-            {status === 'loading' ? 'sending...' : 'send'}
-            <HugeiconsIcon icon={ArrowRight01FreeIcons} size={14} />
-          </motion.button>
-        </form>
+            Get in touch
+            <span className="flex size-6 items-center justify-center rounded-full border border-black/10">
+              <svg
+                aria-hidden="true"
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+              >
+                <path
+                  d="M5 12h14m-6-6 6 6-6 6"
+                  stroke="currentColor"
+                  strokeWidth="1.7"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </span>
+          </motion.a>
 
-        <div className="hidden md:flex w-full justify-center rounded-3xl">
-          <Image src="/contactimg.webp" alt="" width={480} height={480} loading="lazy" quality={80} className="h-120 w-auto" />
+          <div className="mt-auto flex flex-col gap-4 border-t border-white/10 py-5 text-xs text-white/55 sm:flex-row sm:items-center sm:justify-between">
+            <div className="flex flex-wrap items-center gap-x-2 gap-y-2">
+              <span>Follow me on</span>
+              {socials.map((social) => (
+                <a
+                  key={social.label}
+                  href={social.href}
+                  aria-label={social.label}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex size-6 items-center justify-center rounded-md bg-white/10 text-white/75 transition-colors hover:bg-white/20 hover:text-white"
+                >
+                  {social.icon === null ? (
+                <svg
+                  aria-hidden="true"
+                  width="18"
+                  height="18"
+                  viewBox="0 0 34 33"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M16.7296 0.000118661C12.7606 -0.0148512 8.91666 1.38704 5.8892 3.95356C2.86174 6.52008 0.849549 10.0828 0.214658 14.0006C-0.420233 17.9184 0.363852 21.9342 2.42584 25.3255C4.48784 28.7168 7.69237 31.2609 11.4629 32.5001C12.2962 32.6334 12.5629 32.1168 12.5629 31.6668V28.8501C7.94623 29.8501 6.9629 26.6668 6.9629 26.6668C6.65164 25.6317 5.97689 24.7438 5.0629 24.1668C3.54623 23.1335 5.17957 23.1668 5.17957 23.1668C5.70273 23.2345 6.20383 23.4195 6.64541 23.7081C7.08698 23.9967 7.4576 24.3814 7.72957 24.8335C8.19253 25.6566 8.96177 26.2638 9.87 26.5228C10.7782 26.7819 11.752 26.6719 12.5796 26.2168C12.6555 25.3719 13.0274 24.5809 13.6296 23.9835C10.0629 23.6168 6.09623 22.1835 6.09623 15.8335C6.04802 14.1692 6.64522 12.5508 7.7629 11.3168C7.25546 9.88251 7.31508 8.30857 7.92957 6.91679C7.92957 6.91679 9.32957 6.46678 12.5129 8.58345C15.2422 7.84975 18.1169 7.84975 20.8462 8.58345C24.0296 6.43345 25.4296 6.91679 25.4296 6.91679C26.0441 8.30857 26.1037 9.88251 25.5962 11.3168C26.7139 12.5508 27.3111 14.1692 27.2629 15.8335C27.2629 22.2001 23.3629 23.6001 19.6462 24.0168C20.0465 24.4191 20.3562 24.9024 20.5545 25.4341C20.7529 25.9659 20.8353 26.5339 20.7962 27.1001V31.6668C20.7962 32.1168 21.0629 32.6501 21.9129 32.5001C25.6765 31.2631 28.8765 28.7258 30.9389 25.3433C33.0013 21.9607 33.7914 17.9541 33.1674 14.0418C32.5435 10.1295 30.5463 6.56747 27.534 3.99427C24.5217 1.42108 20.6913 0.00506104 16.7296 0.000118661Z"
+                    fill="#FAFAFA"
+                  />
+                </svg>
+              ) : (
+                <HugeiconsIcon
+                  icon={social.icon}
+                  size={17}
+                  strokeWidth={1.7}
+                />
+              )}
+                </a>
+              ))}
+              <span className="ml-1">or get in touch on</span>
+              <a
+                href={`mailto:${EMAIL}`}
+                aria-label={`Email ${EMAIL}`}
+                className="flex size-6 items-center justify-center rounded-md bg-white/10 text-white/75 transition-colors hover:bg-white/20 hover:text-white"
+              >
+                <svg
+                  aria-hidden="true"
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                >
+                  <path
+                    d="M4 6h16v12H4zM4 7l8 6 8-6"
+                    stroke="currentColor"
+                    strokeWidth="1.6"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </a>
+            </div>
+
+            <div className="flex flex-wrap items-center gap-x-5 gap-y-1 sm:justify-end">
+              <span>© {dateTime?.year ?? "2026"} tayo.</span>
+              <span className="font-mono text-[11px] tracking-normal text-white/45">
+                {dateTime ? `LAGOS ${dateTime.time}` : "LAGOS"}
+              </span>
+              <time className="font-mono text-[11px] tracking-normal text-white/45">
+                {dateTime?.date ?? ""}
+              </time>
+            </div>
+          </div>
         </div>
       </div>
 
-      {/* Success modal */}
-      <AnimatePresence>
-        {status === 'success' && (
-          <SuccessModal onClose={() => setStatus('idle')} />
-        )}
-      </AnimatePresence>
-    </div>
+      <div className="relative h-[240px] shrink-0 overflow-hidden sm:h-[270px]">
+        <Image
+          src="/heroimg.png"
+          alt=""
+          fill
+          sizes="(max-width: 1440px) 100vw, 1440px"
+          className="object-cover object-[center_66%] brightness-[0.7] saturate-[0.8]"
+        />
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 bg-gradient-to-b from-[#0d0e0e] via-black/15 to-black/5"
+        />
+        <p
+          aria-hidden="true"
+          className="absolute inset-x-0 bottom-[-0.18em] overflow-hidden whitespace-nowrap text-center text-[clamp(5rem,44vw,28rem)] font-medium leading-[0.78] tracking-[-0.09em] text-lime-300/30"
+        >
+          tayo
+        </p>
+      </div>
+    </footer>
   );
 }

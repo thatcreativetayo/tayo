@@ -5,6 +5,7 @@ import React, { useState } from "react";
 import AnimatedSection from "@/components/AnimatedSection";
 import { motion, useReducedMotion } from "framer-motion";
 import { easeOut, fadeUp, staggerChildren, viewportOnce } from "@/lib/motion";
+import GithubActivity from "@/components/ui/github-activity";
 
 const photos = [
   { src: "/me/food.webp", label: "fav food...", width: 200, height: 267 },
@@ -25,7 +26,7 @@ const OffScreen = () => {
   const reduceMotion = useReducedMotion();
 
   return (
-    <AnimatedSection className="flex flex-col max-w-4xl w-full p-7 text-center serif text-base/50 justify-center items-center py-24">
+    <AnimatedSection className="flex flex-col max-w-220 w-full p-7 text-center serif text-base/50 justify-center items-center py-24">
       <motion.div
         className="text-xl sm:text-2xl md:text-3xl font-bold"
         variants={fadeUp}
@@ -162,6 +163,7 @@ const OffScreen = () => {
           })}
         </div>
       </motion.div>
+      <GithubActivity />
     </AnimatedSection>
   );
 };
