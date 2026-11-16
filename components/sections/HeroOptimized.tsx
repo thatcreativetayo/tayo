@@ -60,31 +60,35 @@ export default function Hero() {
           <motion.h2
             variants={heroTextVariants}
             transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-            className="flex flex-wrap items-center gap-x-1.5 text-[clamp(1.6rem,3.8vw,2.1rem)] font-medium leading-[1.15] tracking-[-0.065em] text-black/35"
+            className="flex flex-wrap items-center gap-x-1.5 text-[clamp(1.25rem,6.2vw,2.1rem)] font-medium leading-[1.05] tracking-[-0.065em] text-black/35 sm:text-[clamp(1.6rem,3.8vw,2.1rem)] sm:leading-[1.15]"
           >
-            <span>a <span className="text-base">product engineer</span></span>
-            <Image
-              src="/codeicons.svg"
-              alt="TypeScript, development tools, and GitHub"
-              width={196}
-              height={89}
-              className="w-[4.5rem] translate-y-1 sm:w-[clamp(5.5rem,12vw,7rem)] sm:translate-y-1.5 shrink-0"
-            />
-            <span className="text-black/35">&amp;</span>
-            <span className="text-base">designer</span>
-            <Image
-              src="/designicons.svg"
-              alt="Figma and design tools"
-              width={196}
-              height={89}
-              className="w-[4.5rem] translate-y-1 sm:w-[clamp(5.5rem,12vw,7rem)] sm:translate-y-1.5 shrink-0"
-            />
+            <span className="inline-flex items-center gap-x-1.5 whitespace-nowrap">
+              <span>a <span className="text-base">product engineer</span></span>
+              <Image
+                src="/codeicons.svg"
+                alt="TypeScript, development tools, and GitHub"
+                width={196}
+                height={89}
+                className="w-15 shrink-0 translate-y-1 sm:w-[clamp(5.5rem,12vw,7rem)] sm:translate-y-1.5"
+              />
+            </span>
+            <span className="inline-flex items-center gap-x-1.5 whitespace-nowrap">
+              <span className="text-black/35">&amp;</span>
+              <span className="text-base">designer</span>
+              <Image
+                src="/designicons.svg"
+                alt="Figma and design tools"
+                width={196}
+                height={89}
+                className="w-15 shrink-0 translate-y-1 sm:w-[clamp(5.5rem,12vw,7rem)] sm:translate-y-1.5"
+              />
+            </span>
           </motion.h2>
 
           <motion.p
             variants={heroTextVariants}
             transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-            className="text-[clamp(1.55rem,3.6vw,2.1rem)] font-medium leading-[0.8] tracking-[-0.065em] text-black/35"
+            className="text-[clamp(1.4rem,5.8vw,2.1rem)] font-medium leading-[0.95] tracking-[-0.065em] text-black/35 sm:text-[clamp(1.55rem,3.6vw,2.1rem)] sm:leading-[0.8]"
           >
             bringing multiple ideas to life every day.
           </motion.p>

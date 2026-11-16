@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 import { HugeiconsIcon } from "@hugeicons/react";
-import { Instagram, NewTwitterIcon } from "@hugeicons/core-free-icons";
+import { NewTwitterIcon } from "@hugeicons/core-free-icons";
 
 const navLinks = [
   { href: "/#projects", label: "projects" },
@@ -25,12 +25,12 @@ export default function Navbar() {
   return (
     <motion.nav
       aria-label="Main navigation"
-      className="fixed left-1/2 top-0 z-50 w-200 max-w-[calc(100vw-2rem)] -translate-x-1/2 text-base"
+      className="fixed left-1/2 top-0 z-50 w-200 max-w-[calc(100vw-1rem)] -translate-x-1/2 text-base sm:max-w-[calc(100vw-2rem)]"
       initial={{ y: -24, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5, ease: [0.21, 0.47, 0.32, 0.98] }}
     >
-      <div className="relative flex min-h-14 w-full items-center justify-between gap-2 rounded-b-[26px] bg-base p-2 text-light shadow-[0_8px_30px_rgba(48,47,45,0.05)] sm:gap-4 sm:px-2">
+      <div className="relative flex min-h-16 w-full items-center justify-between gap-2 rounded-b-[26px] bg-base px-3 py-2 text-light shadow-[0_8px_30px_rgba(48,47,45,0.05)] sm:min-h-14 sm:gap-4 sm:px-2">
         <svg
           aria-hidden="true"
           width="20"
@@ -69,11 +69,11 @@ export default function Navbar() {
             width={40}
             height={40}
             priority
-            className="h-9 w-9 rounded-full object-cover"
+            className="size-10 rounded-full object-cover sm:size-9"
           />
         </Link>
 
-        <div className="flex min-w-0 flex-1 items-center justify-center gap-1 sm:gap-5">
+        <div className="flex min-w-0 flex-1 items-center justify-center gap-3 sm:gap-5">
           {navLinks.map((link) => {
             const isActive =
               (link.href === "/blog" && pathname.startsWith("/blog")) ||
@@ -85,9 +85,9 @@ export default function Navbar() {
                 key={link.href}
                 href={link.href}
                 aria-current={isActive ? "page" : undefined}
-                className={`whitespace-nowrap rounded-full text-xs transition-all duration-300 sm:px-3 sm:text-sm ${
+                className={`whitespace-nowrap rounded-full px-1 text-sm transition-all duration-300 sm:px-3 ${
                   isActive
-                    ? "font-medium text-light"
+                    ? "bg-light/10 px-2 py-1 font-medium text-light sm:bg-transparent sm:px-3 sm:py-0"
                     : "text-light/65 hover:text-light"
                 }`}
               >
@@ -97,7 +97,7 @@ export default function Navbar() {
           })}
         </div>
 
-        <div className="hidden shrink-0 items-center gap-1 sm:flex">
+        <div className="flex shrink-0 items-center gap-0.5 sm:gap-1">
           {socials.map((social) => (
             <motion.a
               key={social.label}
