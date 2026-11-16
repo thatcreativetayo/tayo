@@ -43,6 +43,7 @@ export default function Hero() {
 
   return (
      <div className="flex pt-36 flex-col max-w-304 w-full mx-auto px-7 justify-center">
+      <Image width={1000} height={1000} src="/heroimg.png" alt="heroimg" className="w-200 h-auto" />
       <motion.div
         className="flex flex-col"
         variants={staggerChildren(0.12)}
@@ -54,7 +55,7 @@ export default function Hero() {
           transition={{ duration: 0.7, ease: easeOut }}
           className="text-3xl sm:text-4xl font-bold text-base"
         >
-          hey, i'm
+          hey, i'm..
           <Image
             src="/tayo.jpg"
             alt="logo"

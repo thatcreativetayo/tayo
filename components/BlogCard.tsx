@@ -51,7 +51,7 @@ export default function BlogCard({ slug, title, description, tags, likes, commen
           {tags.slice(0, 3).map((tag) => (
             <motion.div
               key={tag}
-              className="border border-base/10 text-xs bg-base/5 text-base font-medium rounded-full py-1.25 px-5"
+              className="border my-3 border-base/10 text-xs bg-base/5 text-base font-medium rounded-full py-1.25 px-5"
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
             >

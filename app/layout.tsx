@@ -77,7 +77,7 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className="h-screen antialiased">
-      <body className="min-h-screen w-full overflow-x-hidden bg-[#FBFAF9] flex flex-col">
+      <body className="min-h-screen w-full overflow-x-hidden bg-light flex flex-col">
         <SmoothScroll />
         <Cursor />
         {children}
