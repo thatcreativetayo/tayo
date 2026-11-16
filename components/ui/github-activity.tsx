@@ -52,7 +52,10 @@ export default function GithubActivity() {
   }, []);
 
   return (
-    <section className="normal bg-base/3 p-5 rounded-3xl mt-16" aria-labelledby="github-activity-title">
+    <section
+      className={`${styles.responsive} normal bg-base/3 mt-16 rounded-3xl p-5`}
+      aria-labelledby="github-activity-title"
+    >
       {/* <header className={styles.header}>
         <div>
           <p className={styles.eyebrow}>open source, in pixels</p>

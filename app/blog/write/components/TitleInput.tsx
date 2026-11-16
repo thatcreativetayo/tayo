@@ -37,7 +37,7 @@ export default function TitleInput({ value, onChange, onEnter, shake }: TitleInp
           }
         }}
         className={`w-full resize-none bg-transparent border-none outline-none placeholder-neutral-300 leading-tight ${shake ? 'shake' : ''}`}
-        style={{ fontSize: 40, fontWeight: 700, color: '#111', lineHeight: 1.2, overflow: 'hidden' }}
+        style={{ fontSize: 'clamp(32px, 11vw, 40px)', fontWeight: 700, color: '#111', lineHeight: 1.2, overflow: 'hidden' }}
       />
       {shake && (
         <span className="absolute -bottom-5 left-0 text-xs text-red-500">Title is required</span>

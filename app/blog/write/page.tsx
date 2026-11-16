@@ -151,7 +151,7 @@ export default function WritePage() {
 
       {/* Main content */}
       <main
-        className="max-w-[720px] mx-auto px-6 py-12 sm:px-4 sm:py-8"
+        className="max-w-[720px] mx-auto px-4 py-12 sm:px-4 sm:py-8"
         style={{ paddingTop: checked && pendingDraft ? 108 : 80 }}
       >
         <div className="space-y-6">
@@ -206,5 +206,4 @@ export default function WritePage() {
     </div>
   );
 }
-
 
