@@ -29,7 +29,7 @@ export default function Topbar({ saveStatus, savedTime, onPreview, onPublish, is
   return (
     <header
       style={{ height: 52, borderBottom: '1px solid #e5e5e5' }}
-      className="fixed top-0 left-0 right-0 z-50 bg-white flex items-center justify-between px-5"
+      className="fixed top-0 left-0 right-0 z-50 bg-white flex items-center justify-between px-3 sm:px-5"
     >
       {/* Left */}
       <Link
@@ -46,22 +46,22 @@ export default function Topbar({ saveStatus, savedTime, onPreview, onPublish, is
       {/* Center */}
       <div className="flex items-center gap-2" style={{ fontSize: 13 }}>
         <span className={`w-2 h-2 rounded-full ${dot}`} />
-        <span className="text-neutral-400">{label}</span>
+        <span className="hidden text-neutral-400 sm:inline">{label}</span>
       </div>
 
       {/* Right */}
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-1 sm:gap-2">
         <button
           onClick={onPreview}
           style={{ fontSize: 13 }}
-          className="px-3 py-1.5 rounded-md text-neutral-600 hover:text-neutral-900 hover:bg-neutral-100 transition-colors"
+          className="px-2 py-1.5 rounded-md text-neutral-600 hover:text-neutral-900 hover:bg-neutral-100 transition-colors sm:px-3"
         >
           {isPreviewing ? '← Edit' : 'Preview'}
         </button>
         <button
           onClick={onPublish}
           style={{ fontSize: 13 }}
-          className="px-4 py-1.5 rounded-full bg-neutral-900 text-white hover:bg-neutral-700 transition-colors font-medium"
+          className="px-3 py-1.5 rounded-full bg-neutral-900 text-white hover:bg-neutral-700 transition-colors font-medium sm:px-4"
         >
           Publish
         </button>

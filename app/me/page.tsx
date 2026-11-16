@@ -33,7 +33,7 @@ const galleryImages = [
 ];
 
 const bentoWidths = [
-  "w-120"
+  "w-[min(80vw,30rem)] md:w-120"
 ];
 
 function GalleryStrip() {

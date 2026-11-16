@@ -32,8 +32,8 @@ export default function Hero() {
   const reduceMotion = useReducedMotion();
 
   return (
-    <section className="w-220 overflow-hidden">
-      <div className="mx-auto flex flex-col px-10 pt-20">
+    <section className="w-full max-w-220 overflow-hidden">
+      <div className="mx-auto flex flex-col px-4 pt-16 sm:px-10 sm:pt-20">
         <Image
           src="/heroimg.png"
           alt="Illustrated landscape with a tree, flowers, green hills, and blue sky"
@@ -68,7 +68,7 @@ export default function Hero() {
               alt="TypeScript, development tools, and GitHub"
               width={196}
               height={89}
-              className="w-[clamp(5.5rem,12vw,7rem)] translate-y-1.5 shrink-0"
+              className="w-[4.5rem] translate-y-1 sm:w-[clamp(5.5rem,12vw,7rem)] sm:translate-y-1.5 shrink-0"
             />
             <span className="text-black/35">&amp;</span>
             <span className="text-base">designer</span>
@@ -77,7 +77,7 @@ export default function Hero() {
               alt="Figma and design tools"
               width={196}
               height={89}
-              className="w-[clamp(5.5rem,12vw,7rem)] translate-y-1.5 shrink-0"
+              className="w-[4.5rem] translate-y-1 sm:w-[clamp(5.5rem,12vw,7rem)] sm:translate-y-1.5 shrink-0"
             />
           </motion.h2>
 
@@ -116,7 +116,7 @@ export default function Hero() {
 
       <TiltedGridHero
         images={carouselImages}
-        className="h-[420px] w-full"
+        className="h-[300px] w-full sm:h-[360px] md:h-[420px]"
       />
     </section>
   );
